@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certificaciones de Michael Williams Martinez">
+    <title>Michael Williams Martinez - Certificaciones</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --secondary: #dbeafe;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --primary-dark: #3b82f6;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --secondary: #1e3a8a;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border: #334155;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .header-info h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .certification-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certification-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        
+        .certification-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+        }
+        
+        .certification-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .certification-issuer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .certification-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--secondary);
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: auto;
+        }
+        
+        .footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-info h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="header-info">
+                <h1>Michael Williams Martinez</h1>
+                <div class="header-location">
+                    <i class="fas fa-certificate"></i>
+                    <span>Certificaciones Profesionales</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <button class="btn-primary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al CV</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-award"></i>
+            <span>Certificaciones y Cursos</span>
+        </h2>
+        
+        <div class="certifications-grid">
+            <div class="certification-card">
+                <img src="cert GCCH-1.jpg" alt="Certificado Global Common Controls Hardware" class="certification-image">
+                <h3 class="certification-title">Global Common Controls Hardware (GcCH-1)</h3>
+                <div class="certification-issuer">Macomb Community College</div>
+                <div class="certification-date">Junio 16, 2017</div>
+            </div>
+            
+            <div class="certification-card">
+                <img src="cert GCCS-2.jpg" alt="Certificado Global Common Controls Software" class="certification-image">
+                <h3 class="certification-title">Global Common Controls Software (GCCS-2)</h3>
+                <div class="certification-issuer">Macomb Community College</div>
+                <div class="certification-date">Agosto 1, 2017</div>
+            </div>
+            
+            <div class="certification-card">
+                <img src="cert Plc.jpg" alt="Certificado PLC Allen-Bradley" class="certification-image">
+                <h3 class="certification-title">Introducción R.E.C. ControlLogix 5000</h3>
+                <div class="certification-issuer">Escuela de Educación Técnica N°1</div>
+                <div class="certification-date">Diciembre 26, 2011</div>
+            </div>
+            
+            <div class="certification-card">
+                <img src="cert sipial.jpg" alt="Certificado Programación" class="certification-image">
+                <h3 class="certification-title">Tecnicatura en Programación</h3>
+                <div class="certification-issuer">Instituto Sipial</div>
+                <div class="certification-date">Abril 19, 2005</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-actions">
+                <button class="btn-primary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al CV</span>
+                </button>
+                <button class="btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i>
+                    <span>Imprimir</span>
+                </button>
+            </div>
+            <div class="footer-note">
+                &copy; 2024 Michael Williams Martinez. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Theme management
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Initialize theme
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Go back to main CV
+        function goBack() {
+            window.close(); // Cierra la ventana actual
+            // Si la ventana no se puede cerrar, redirige al index
+            if (!window.closed) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Initialize everything when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTheme();
+        });
+    </script>
+</body>
+</html>

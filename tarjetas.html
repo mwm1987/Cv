@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas de Presentación Profesionales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .preview-section {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .card-wrapper {
+            perspective: 1000px;
+        }
+
+        .business-card {
+            width: 350px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card-wrapper:hover .business-card {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .card-back {
+            background: white;
+            transform: rotateY(180deg);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+
+        .profile-pic.pink {
+            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+        }
+
+        .name-title {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .name-title h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .name-title p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+        }
+
+        .contact-item i {
+            width: 16px;
+            text-align: center;
+            color: #3498db;
+            flex-shrink: 0;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 16px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-2px);
+            color: #3498db;
+        }
+
+        .logo {
+            font-size: 10px;
+            opacity: 0.7;
+            text-align: right;
+        }
+
+        .qr-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code {
+            width: 140px;
+            height: 140px;
+            background: #f0f0f0;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .qr-code.pink-border {
+            border-color: #e91e63;
+        }
+
+        .qr-code canvas,
+        .qr-code img {
+            max-width: 130px;
+            max-height: 130px;
+        }
+
+        .qr-text {
+            font-size: 13px;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .qr-subtext {
+            font-size: 10px;
+            color: #7f8c8d;
+        }
+
+        .flip-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 10px;
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .download-section {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: #f8f9fa;
+        }
+
+        .download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Estilos para impresión PDF */
+        .print-container {
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .preview-section,
+            .download-section {
+                display: none !important;
+            }
+
+            .print-container {
+                display: block !important;
+                width: 210mm;
+                height: 297mm;
+                padding: 10mm;
+            }
+
+            .print-page {
+                page-break-after: always;
+            }
+
+            .print-card {
+                width: 85.6mm;
+                height: 53.98mm;
+                border-radius: 3mm;
+                overflow: hidden;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .cards-row {
+                display: flex;
+                gap: 5mm;
+                margin-bottom: 10mm;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .preview-section {
+                flex-direction: column;
+            }
+            
+            .business-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Vista previa de las tarjetas -->
+        <div class="preview-section">
+            <!-- Tarjeta Michael Williams Martinez -->
+            <div class="card-wrapper">
+                <div class="business-card" id="card-michael-preview">
+                    <div class="card-face card-front">
+                        <div>
+                            <div class="card-header">
+                                <div class="profile-pic">MW</div>
+                                <div class="name-title">
+                                    <h2>Michael Williams Martinez</h2>
+                                    <p>Industrial Automation & Mobile Dev</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>mmaik1987@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+54 9 297 417 6615</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Argentina (Remote Available)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="social-links">
+                                <a href="https://github.com/michaelmartinezw" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://linkedin.com/in/michael-williams-martinez-3b70ab7a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                            <div class="logo">
+                                <div>15+ Years Experience</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flip-hint">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Voltea la tarjeta</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-face card-back">
+                        <div class="qr-container">
+                            <div class="qr-code" id="qr-michael-preview"></div>
+                            <div class="qr-text">Escanea para ver mi CV</div>
+                            <div class="qr-subtext">O visita mi perfil online</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta Erica Marisol Rodriguez -->
+            <div class="card-wrapper">
+                <div class="business-card" id="card-erica-preview">
+                    <div class="card-face card-front">
+                        <div>
+                            <div class="card-header">
+                                <div class="profile-pic pink">ER</div>
+                                <div class="name-title">
+                                    <h2>Erica Marisol Rodriguez</h2>
+                                    <p>Profesional Proactiva y Versátil</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>mrmarisolrodriguez23@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+54 2975 26-6178</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+54 381 200-5064</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>San Miguel de Tucumán</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="social-links">
+                                <a href="mailto:mrmarisolrodriguez23@gmail.com"><i class="fas fa-envelope"></i></a>
+                                <a href="tel:+542975266178"><i class="fas fa-phone"></i></a>
+                            </div>
+                            <div class="logo">
+                                <div>Múltiples Certificaciones</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flip-hint">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Voltea la tarjeta</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-face card-back">
+                        <div class="qr-container">
+                            <div class="qr-code pink-border" id="qr-erica-preview"></div>
+                            <div class="qr-text">Escanea para ver mi CV</div>
+                            <div class="qr-subtext">O visita mi perfil online</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <button class="download-btn" onclick="downloadCardPDF('michael')">
+                <i class="fas fa-file-pdf"></i>
+                Descargar PDF - Michael
+            </button>
+            <button class="download-btn" onclick="downloadCardPDF('erica')">
+                <i class="fas fa-file-pdf"></i>
+                Descargar PDF - Erica
+            </button>
+        </div>
+    </div>
+
+    <!-- Contenedores ocultos para generar PDF -->
+    <div class="print-container">
+        <div id="michael-print-front" class="print-card"></div>
+        <div id="michael-print-back" class="print-card"></div>
+        <div id="erica-print-front" class="print-card"></div>
+        <div id="erica-print-back" class="print-card"></div>
+    </div>
+
+    <script>
+        let qrCodes = {};
+
+        // Generar códigos QR cuando la página carga
+        window.addEventListener('DOMContentLoaded', () => {
+            // QR para Michael
+            qrCodes.michael = new QRCode(document.getElementById("qr-michael-preview"), {
+                text: "https://mwm1987.github.io/Cv/",
+                width: 130,
+                height: 130,
+                colorDark: "#2c3e50",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // QR para Erica
+            qrCodes.erica = new QRCode(document.getElementById("qr-erica-preview"), {
+                text: "https://ericamarisolrodriguez.github.io/Cv/",
+                width: 130,
+                height: 130,
+                colorDark: "#c2185b",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
+
+        async function downloadCardPDF(person) {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'landscape',
+                unit: 'mm',
+                format: [85.6, 53.98]
+            });
+
+            try {
+                // Crear tarjetas temporales para captura
+                const frontCard = createPrintCard(person, 'front');
+                const backCard = createPrintCard(person, 'back');
+
+                // Capturar frente
+                const frontCanvas = await html2canvas(frontCard, {
+                    scale: 3,
+                    backgroundColor: '#2c3e50',
+                    logging: false,
+                    useCORS: true
+                });
+
+                const frontImg = frontCanvas.toDataURL('image/jpeg', 1.0);
+                pdf.addImage(frontImg, 'JPEG', 0, 0, 85.6, 53.98);
+
+                // Añadir página para el reverso
+                pdf.addPage();
+
+                // Capturar reverso
+                const backCanvas = await html2canvas(backCard, {
+                    scale: 3,
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    useCORS: true
+                });
+
+                const backImg = backCanvas.toDataURL('image/jpeg', 1.0);
+                pdf.addImage(backImg, 'JPEG', 0, 0, 85.6, 53.98);
+
+                // Descargar PDF
+                pdf.save(`tarjeta-${person}.pdf`);
+
+                // Limpiar elementos temporales
+                document.body.removeChild(frontCard);
+                document.body.removeChild(backCard);
+
+            } catch (error) {
+                console.error('Error al generar PDF:', error);
+                alert('Error al generar el PDF. Por favor, intenta de nuevo.');
+            }
+        }
+
+        function createPrintCard(person, side) {
+            const container = document.createElement('div');
+            container.style.cssText = 'position: fixed; top: -10000px; left: -10000px; width: 350px; height: 200px;';
+            
+            if (side === 'front') {
+                container.innerHTML = `
+                    <div style="width: 350px; height: 200px; background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); border-radius: 15px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background: ${person === 'michael' ? 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)' : 'linear-gradient(135deg, #e91e63 0%, #c2185b 100%)'}; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; border: 3px solid rgba(255, 255, 255, 0.3);">
+                                    ${person === 'michael' ? 'MW' : 'ER'}
+                                </div>
+                                <div>
+                                    <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 5px; line-height: 1.2;">
+                                        ${person === 'michael' ? 'Michael Williams Martinez' : 'Erica Marisol Rodriguez'}
+                                    </h2>
+                                    <p style="font-size: 12px; opacity: 0.9; margin: 0;">
+                                        ${person === 'michael' ? 'Industrial Automation & Mobile Dev' : 'Profesional Proactiva y Versátil'}
+                                    </p>
+                                </div>
+                            </div>
+                            ${getContactInfo(person)}
+                        </div>
+                        ${getFooter(person)}
+                    </div>
+                `;
+            } else {
+                const qrDataURL = getQRDataURL(person);
+                container.innerHTML = `
+                    <div style="width: 350px; height: 200px; background: white; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                        <div style="width: 140px; height: 140px; background: #f0f0f0; border: 2px solid ${person === 'michael' ? '#3498db' : '#e91e63'}; border-radius: 10px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                            <img src="${qrDataURL}" style="width: 130px; height: 130px;" />
+                        </div>
+                        <div style="font-size: 13px; color: #2c3e50; font-weight: 600; margin-bottom: 5px;">Escanea para ver mi CV</div>
+                        <div style="font-size: 10px; color: #7f8c8d;">O visita mi perfil online</div>
+                    </div>
+                `;
+            }
+            
+            document.body.appendChild(container);
+            return container;
+        }
+
+        function getContactInfo(person) {
+            if (person === 'michael') {
+                return `
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-envelope" style="width: 16px; color: #3498db;"></i>
+                            <span>mmaik1987@gmail.com</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-phone" style="width: 16px; color: #3498db;"></i>
+                            <span>+54 9 297 417 6615</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-map-marker-alt" style="width: 16px; color: #3498db;"></i>
+                            <span>Argentina (Remote Available)</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-envelope" style="width: 16px; color: #3498db;"></i>
+                            <span>mrmarisolrodriguez23@gmail.com</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-phone" style="width: 16px; color: #3498db;"></i>
+                            <span>+54 2975 26-6178</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-phone" style="width: 16px; color: #3498db;"></i>
+                            <span>+54 381 200-5064</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; font-size: 11px;">
+                            <i class="fas fa-map-marker-alt" style="width: 16px; color: #3498db;"></i>
+                            <span>San Miguel de Tucumán</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function getFooter(person) {
+            if (person === 'michael') {
+                return `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                        <div style="display: flex; gap: 10px;">
+                            <i class="fab fa-github" style="font-size: 16px;"></i>
+                            <i class="fab fa-linkedin" style="font-size: 16px;"></i>
+                        </div>
+                        <div style="font-size: 10px; opacity: 0.7;">15+ Years Experience</div>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                        <div style="display: flex; gap: 10px;">
+                            <i class="fas fa-envelope" style="font-size: 16px;"></i>
+                            <i class="fas fa-phone" style="font-size: 16px;"></i>
+                        </div>
+                        <div style="font-size: 10px; opacity: 0.7;">Múltiples Certificaciones</div>
+                    </div>
+                `;
+            }
+        }
+
+        function getQRDataURL(person) {
+            const qrContainer = document.getElementById(`qr-${person}-preview`);
+            const canvas = qrContainer.querySelector('canvas');
+            if (canvas) {
+                return canvas.toDataURL('image/png');
+            }
+            return '';
+        }
+    </script>
+</body>
+</html>

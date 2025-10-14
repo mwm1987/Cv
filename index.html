@@ -813,10 +813,16 @@
                 <button class="btn-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
+                <!-- En la sección header-actions, después del botón de Descargar PDF -->
+<button class="btn-primary" onclick="openCertifications()">
+    <i class="fas fa-certificate"></i>
+    <span data-i18n="certifications">Certificaciones</span>
+</button>
                 <button class="btn-primary" onclick="downloadPDF()">
                     <i class="fas fa-download"></i>
                     <span data-i18n="download">Descargar PDF</span>
                 </button>
+                
             </div>
         </div>
     </header>
@@ -1749,6 +1755,11 @@
                     <i class="fas fa-share-alt"></i>
                     <span data-i18n="share">Compartir</span>
                 </button>
+                <!-- En la sección footer-actions, después del botón de Compartir -->
+<button class="btn-primary" onclick="openCertifications()">
+    <i class="fas fa-certificate"></i>
+    <span data-i18n="certifications">Certificaciones</span>
+</button>
             </div>
             <div class="footer-note" data-i18n="footer-note">
                 &copy; 2024 Michael Williams Martinez. Todos los derechos reservados.
@@ -1813,7 +1824,7 @@
                 "company-11": "S.E.I.P • Comodoro Rivadavia, Argentina",
                 "company-12": "Ensamblaje de Baterías GM • Spring Hill, Tennessee, EE. UU.",
                 "company-13": "Remoto",
-                
+                "certifications": "Certificaciones",
                 // Descriptions
                 "description-1": "Construcción y servicio/mantenimiento en campos petroleros. Ensamblaje y puesta en marcha de equipos de telemetría para pozos AIB controlados por PLC MOSCAD D,L (Motorola). Instalación de equipos de telemetría Lufkin Pump-off para pozos AIB.",
                 "description-2": "Mantenimiento correctivo y preventivo de equipos de medición de presión, temperatura, caudal, transductores ultrasónicos y válvulas de control. Contraste con sistema SCADA y reparación de equipos defectuosos.",
@@ -1938,7 +1949,7 @@
                 
                 // Profile
                 "profile-summary": "Versatile professional with over 15 years of experience in Industrial Automation and Control, and more than 6 years in Cross-Platform Mobile Development. I have worked on international projects in Argentina, South Africa, and the United States, combining industrial engineering with modern software solutions. Specialized in the design, implementation, and optimization of automated control systems, including PLC programming, SCADA/HMI development, process control, and industrial safety systems (SIL). Proven experience managing automation projects from planning to commissioning, leading technical teams, and collaborating with multidisciplinary professionals. My career spans industries such as oil & gas, automotive, and food production, which has provided me with a comprehensive understanding of industrial systems and the ability to adapt quickly to different technological environments. Additionally, I have solid experience in Android mobile application development using Kotlin and Java, applying clean architecture principles, and integrating Firebase, SQLite, and RESTful APIs built with Node.js and MongoDB. I design modern, functional user interfaces, optimize app performance, and implement push notifications and real-time services. I am an independent, results-oriented professional with a constant focus on technological innovation and continuous improvement. My goal is to bridge industrial engineering and software development to deliver intelligent, scalable, and high-impact solutions."
-                                                    ,
+                                                        ,
                 
                 // Skills
                 "skills-title": "Skills and Competencies",
@@ -2064,7 +2075,7 @@
                 "reference-11-1-position": "Sr. Electronic Engineer - Pan American Energy",
                 "reference-12-1-position": "Project Manager",
                 "reference-13-note": "Available upon request",
-                
+                "certifications": "Certifications",
                 // Tech labels
                 "tools": "Tools",
                 "technologies": "Technologies",
@@ -2216,6 +2227,9 @@
                 });
             }
         }
+        function openCertifications() {
+    window.open('certifications.html', '_blank');
+}
 
         // Initialize everything when the DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
