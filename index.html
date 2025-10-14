@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michael Williams Martinez - Versatile professional with 15+ years in Industrial Automation and 6+ years in Mobile Development">
+    <title>Michael Williams Martinez - Professional CV</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --secondary: #dbeafe;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --automation-color: #10b981;
+            --programming-color: #8b5cf6;
+            --mobile-color: #f59e0b;
+        }
+        
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --primary-dark: #3b82f6;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --secondary: #1e3a8a;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border: #334155;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
+            --automation-color: #34d399;
+            --programming-color: #a78bfa;
+            --mobile-color: #fbbf24;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        
+        .skip-to-content:focus {
+            top: 0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .header-info h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .language-indicator {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            margin-left: -0.5rem;
+        }
+        
+        .btn-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            position: sticky;
+            top: 80px;
+            z-index: 40;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .timeline-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        
+        .timeline-nav-track {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            position: relative;
+            white-space: nowrap;
+            padding: 0 1rem;
+        }
+        
+        .timeline-nav-line {
+            position: absolute;
+            height: 2px;
+            background: var(--border);
+            width: calc(100% - 2rem);
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-nav-item {
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        
+        .timeline-nav-item:hover {
+            background: var(--secondary);
+        }
+        
+        .timeline-nav-item.active .timeline-nav-dot {
+            background: var(--primary);
+            box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.1);
+        }
+        
+        .timeline-nav-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--border);
+            border: 3px solid var(--surface);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-nav-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-nav-item.active .timeline-nav-label {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .sidebar-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 auto 1rem;
+        }
+        
+        .profile-summary {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-info a, .copy-email {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+        }
+        
+        .contact-info a:hover, .copy-email:hover {
+            color: var(--primary-dark);
+        }
+        
+        .skills-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .skills-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .skills-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .skills-group h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-badge {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            white-space: nowrap;
+        }
+        
+        .skill-badge.automation {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--automation-color);
+        }
+        
+        .skill-badge.programming {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--programming-color);
+        }
+        
+        .skill-badge.mobile {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--mobile-color);
+        }
+        
+        [data-theme="dark"] .skill-badge {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-light);
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .section-title i {
+            font-size: 1.75rem;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .timeline-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-left: 3px solid var(--border);
+            padding-left: 2rem;
+            margin-left: 1rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(9) { animation-delay: 0.9s; }
+        .timeline-item:nth-child(10) { animation-delay: 1s; }
+        .timeline-item:nth-child(11) { animation-delay: 1.1s; }
+        .timeline-item:nth-child(12) { animation-delay: 1.2s; }
+        
+        .timeline-item:hover {
+            border-left-color: var(--primary);
+        }
+        
+        .timeline-node {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--surface);
+            margin-top: 0.25rem;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+        
+        .timeline-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        
+        .period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--secondary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+        
+        .role-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .company-location {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .timeline-card p {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .responsibilities {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .responsibilities li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .responsibilities li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .references {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .references h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .reference-item {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--secondary);
+            border-radius: 8px;
+        }
+        
+        .reference-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .reference-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .reference-position {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .reference-contact {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .reference-contact a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .reference-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .tech-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-badge {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        [data-theme="dark"] .tech-badge {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-light);
+        }
+        
+        .education-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .education-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .education-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-details {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        
+        .education-period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--secondary);
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 30;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-4px);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-info h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .timeline-item {
+                gap: 1rem;
+                padding: 1.5rem 0 1.5rem 1.5rem;
+                margin-left: 0.5rem;
+            }
+            
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .scroll-to-top {
+                width: 44px;
+                height: 44px;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content" data-i18n="skip-content">Saltar al contenido principal</a>
+    
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="header-info">
+                <h1>Michael Williams Martinez</h1>
+                <div class="header-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span data-i18n="location">Argentina (disponible para trabajo remoto y viajes)</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="toggleLanguage()" aria-label="Cambiar idioma" title="Cambiar idioma">
+                    <i class="fas fa-language"></i>
+                    <span class="language-indicator" id="language-indicator">ES</span>
+                </button>
+                <button class="btn-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <button class="btn-primary" onclick="downloadPDF()">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="download">Descargar PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="timeline-nav">
+        <div class="timeline-nav-container">
+            <div class="timeline-nav-track">
+                <div class="timeline-nav-line"></div>
+                <div class="timeline-nav-item" data-target="period-1">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2005-2007</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-2">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2007-2009</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-3">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2009-2013</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-4">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2014</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-5">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2015</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-6">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2015-2017</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-7">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2017-2018</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-8">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2018-2019</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-9">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2019-2022</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-10">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2022-2023</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-11">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2024</div>
+                </div>
+                <div class="timeline-nav-item" data-target="period-12">
+                    <div class="timeline-nav-dot"></div>
+                    <div class="timeline-nav-label">2024-Actual</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <aside class="sidebar" role="complementary">
+            <div class="sidebar-card">
+                <div class="profile-photo" aria-label="Foto de perfil">MW</div>
+                <div class="profile-summary" data-i18n="profile-summary">
+                    Profesional versátil con más de 15 años de experiencia en Automatización y Control Industrial, y más de 6 años en Desarrollo Móvil multiplataforma. Experiencia internacional en Argentina, Sudáfrica y Estados Unidos. Combina ingeniería industrial con soluciones modernas de software y aplicaciones móviles.
+                </div>
+                
+                <ul class="contact-info" role="list">
+                    <li role="listitem">
+                        <i class="fas fa-envelope"></i>
+                        <button class="copy-email" onclick="copyEmail()" title="Haz clic para copiar el email">
+                            mmaik1987@gmail.com
+                        </button>
+                    </li>
+                    <li role="listitem">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+5492974176615">+54 9 297 417 6615</a>
+                    </li>
+                    <li role="listitem">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/michaelmartinezw" target="_blank" rel="noopener">GitHub</a>
+                    </li>
+                    <li role="listitem">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/michael-williams-martinez-3b70ab7a" target="_blank" rel="noopener">LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-card">
+                <div class="skills-section">
+                    <h3 data-i18n="skills-title">Habilidades y Competencias</h3>
+                    
+                    <div class="skills-group">
+                        <h4 data-i18n="skills-industrial">Automatización Industrial</h4>
+                        <div class="skills-list">
+                            <span class="skill-badge automation"><i class="fas fa-cog"></i> PLC Programming</span>
+                            <span class="skill-badge automation"><i class="fas fa-desktop"></i> SCADA/HMI</span>
+                            <span class="skill-badge automation"><i class="fas fa-robot"></i> Robotics</span>
+                            <span class="skill-badge automation"><i class="fas fa-industry"></i> Industrial IoT</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h4 data-i18n="skills-mobile">Móvil y Backend</h4>
+                        <div class="skills-list">
+                            <span class="skill-badge mobile"><i class="fab fa-android"></i> Android</span>
+                            <span class="skill-badge mobile"><i class="fas fa-mobile-alt"></i> Flutter</span>
+                            <span class="skill-badge programming"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="skill-badge programming"><i class="fas fa-fire"></i> Firebase</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h4 data-i18n="skills-languages">Lenguajes de Programación</h4>
+                        <div class="skills-list">
+                            <span class="skill-badge programming">Kotlin</span>
+                            <span class="skill-badge programming">Java</span>
+                            <span class="skill-badge programming">Dart</span>
+                            <span class="skill-badge programming">JavaScript</span>
+                            <span class="skill-badge programming">C</span>
+                            <span class="skill-badge programming">Ensamblador</span>
+                            <span class="skill-badge programming">SQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h4 data-i18n="skills-networks">Redes y Protocolos</h4>
+                        <div class="skills-list">
+                            <span class="skill-badge automation">MODBUS</span>
+                            <span class="skill-badge automation">Ethernet/IP</span>
+                            <span class="skill-badge automation">PROFIBUS</span>
+                            <span class="skill-badge automation">DeviceNet</span>
+                            <span class="skill-badge automation">OPC</span>
+                            <span class="skill-badge automation">TCP/IP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h4 data-i18n="skills-tools">Herramientas y Plataformas</h4>
+                        <div class="skills-list">
+                            <span class="skill-badge automation">Studio 5000</span>
+                            <span class="skill-badge automation">TIA Portal</span>
+                            <span class="skill-badge mobile">Android Studio</span>
+                            <span class="skill-badge automation">iFIX</span>
+                            <span class="skill-badge automation">AutoCAD</span>
+                            <span class="skill-badge mobile">Figma</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h4 data-i18n="skills-languages-human">Idiomas</h4>
+                        <div class="skills-list">
+                            <span class="skill-badge"><i class="fas fa-language"></i> Español (Nativo)</span>
+                            <span class="skill-badge"><i class="fas fa-language"></i> Inglés (Avanzado)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content" id="main-content" role="main">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i>
+                <span data-i18n="timeline-title">Línea de Tiempo Profesional</span>
+            </h2>
+            
+            <div class="timeline" role="list" aria-label="Línea de tiempo profesional">
+                
+                <!-- Period 1: 2005-2007 -->
+                <div class="timeline-item" id="period-1" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2005 – 2007</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-wrench"></i>
+                            <span data-i18n="role-1">Técnico Eléctrico en Instrumentos</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-1">NEOTEK SRL • Comodoro Rivadavia, Argentina</div>
+                        <p data-i18n="description-1">
+                            Construcción y servicio/mantenimiento en campos petroleros. Ensamblaje y puesta en marcha de equipos de telemetría para pozos AIB controlados por PLC MOSCAD D,L (Motorola). Instalación de equipos de telemetría Lufkin Pump-off para pozos AIB.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-1-1">Ensamblaje y conexión de transmisores de presión, temperatura, caudal, transductores ultrasónicos y válvulas.</li>
+                            <li data-i18n="responsibility-1-2">Instalación y puesta en marcha de equipos de telemetría para pozos AIB.</li>
+                            <li data-i18n="responsibility-1-3">Mantenimiento preventivo y correctivo de sistemas de control.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PACTWARE</span>
+                                    <span class="tech-badge">MODBUS32</span>
+                                    <span class="tech-badge">ROSEMOUNT</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="technologies">Tecnologías</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PLC MOSCAD</span>
+                                    <span class="tech-badge">Telemetría</span>
+                                    <span class="tech-badge">Instrumentación</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 2: 2007-2009 -->
+                <div class="timeline-item" id="period-2" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2007 – 2009</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-tools"></i>
+                            <span data-i18n="role-2">Oficial de Instrumentación</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-2">SKANSKA L.A • Comodoro Rivadavia, Argentina</div>
+                        <p data-i18n="description-2">
+                            Mantenimiento correctivo y preventivo de equipos de medición de presión, temperatura, caudal, transductores ultrasónicos y válvulas de control. Contraste con sistema SCADA y reparación de equipos defectuosos.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-2-1">Mantenimiento de sistemas de medición y control.</li>
+                            <li data-i18n="responsibility-2-2">Reparación y reemplazo de equipos defectuosos.</li>
+                            <li data-i18n="responsibility-2-3">Contraste de instrumentos con sistema SCADA.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PACTWARE</span>
+                                    <span class="tech-badge">MODBUS32</span>
+                                    <span class="tech-badge">ROSEMOUNT</span>
+                                    <span class="tech-badge">SCT 3000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 3: 2009-2013 -->
+                <div class="timeline-item" id="period-3" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2009 – 2013</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-desktop"></i>
+                            <span data-i18n="role-3">Supervisor SCADA</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-3">SKANSKA L.A • Comodoro Rivadavia, Argentina</div>
+                        <p data-i18n="description-3">
+                            Monitoreo y control de estados de procesos HMI/SCADA con software PLC Allen-Bradley, Moscad Dl, Siemens, Honeywell. Distribución y adquisición de datos, alarmas, reportes del sistema en tiempo real y tendencias históricas.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-3-1">Instalación y configuración de sistemas SCADA.</li>
+                            <li data-i18n="responsibility-3-2">Creación de base de datos de procesos y pantallas gráficas.</li>
+                            <li data-i18n="responsibility-3-3">Desarrollo de funcionalidades: alarmas, seguridad, reportes y tendencias.</li>
+                            <li data-i18n="responsibility-3-4">Configuración de controladores y sistemas de seguridad.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">iFIX Intellution</span>
+                                    <span class="tech-badge">VBA</span>
+                                    <span class="tech-badge">SQL/ODBC</span>
+                                    <span class="tech-badge">ActiveX</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="protocols">Protocolos</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">TCP/IP</span>
+                                    <span class="tech-badge">OPC</span>
+                                    <span class="tech-badge">MODBUS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Daniel Flores</div>
+                                <div class="reference-position" data-i18n="reference-3-1-position">Departamento de Mantenimiento de Instrumentación</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+5492975929891"><i class="fas fa-phone"></i> +54 9 297 5929891</a>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <div class="reference-name">Marcelo Lorenc</div>
+                                <div class="reference-position" data-i18n="reference-3-2-position">Coordinador SCADA y Control</div>
+                                <div class="reference-contact">
+                                    <a href="https://www.linkedin.com/in/marcelo-lorenc-01a9637/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 4: 2014 -->
+                <div class="timeline-item" id="period-4" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2014</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-code"></i>
+                            <span data-i18n="role-4">Programador Jr</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-4">DESIGN INTERNATIONAL • Durban, Sudáfrica</div>
+                        <p data-i18n="description-4">
+                            Puesta en marcha y optimización de sistemas robóticos. Programación y desarrollo de SCADA y HMI. Programación de PLCs: Beckhoff, Allen-Bradley, Siemens, Festo, Mitsubishi, Toyopuc.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-4-1">Programación de múltiples marcas de PLC.</li>
+                            <li data-i18n="responsibility-4-2">Desarrollo de interfaces HMI y sistemas SCADA.</li>
+                            <li data-i18n="responsibility-4-3">Puesta en marcha de sistemas robóticos.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PCwin</span>
+                                    <span class="tech-badge">GX Developer</span>
+                                    <span class="tech-badge">RSLogix5000</span>
+                                    <span class="tech-badge">TIA Portal</span>
+                                    <span class="tech-badge">Factory Talk</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="plc">PLCs</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Allen-Bradley</span>
+                                    <span class="tech-badge">Siemens</span>
+                                    <span class="tech-badge">Beckhoff</span>
+                                    <span class="tech-badge">Mitsubishi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 5: 2015 -->
+                <div class="timeline-item" id="period-5" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2015</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-cogs"></i>
+                            <span data-i18n="role-5">Programador Senior</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-5">DIRECTECH • Durban, Sudáfrica (Toyota S.A)</div>
+                        <p data-i18n="description-5">
+                            Programación de PLC Toyopuc para cinta transportadora de tablones Hilux SUV. Puesta en marcha, optimización y desarrollo de HMI con reportes, gráficos de tendencia, indicadores y alarmas.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-5-1">Programación de PLC Toyopuc.</li>
+                            <li data-i18n="responsibility-5-2">Puesta en marcha y optimización de sistemas.</li>
+                            <li data-i18n="responsibility-5-3">Parametrización y calibración de variadores de velocidad, sensores e instrumentación.</li>
+                            <li data-i18n="responsibility-5-4">Desarrollo de HMI con reportes y alarmas.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PCwin</span>
+                                    <span class="tech-badge">GX Developer</span>
+                                    <span class="tech-badge">GX WORK 3</span>
+                                    <span class="tech-badge">Screen Works</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="networks">Redes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PROFIBUS</span>
+                                    <span class="tech-badge">ETHERNET</span>
+                                    <span class="tech-badge">DEVICENET</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Peter Erasmus</div>
+                                <div class="reference-position" data-i18n="reference-5-1-position">CEO - Directech Group</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27117082202"><i class="fas fa-phone"></i> +27 11 708 2202 (Ext: 244)</a>
+                                    <a href="tel:+27828531178"><i class="fas fa-mobile-alt"></i> +27 82 853 1178</a>
+                                    <a href="mailto:peter.erasmus@directech.co.za"><i class="fas fa-envelope"></i> peter.erasmus@directech.co.za</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 6: 2015-2017 -->
+                <div class="timeline-item" id="period-6" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2015 – 2017</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-user-tie"></i>
+                            <span data-i18n="role-6">Director</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-6">TEDICON • Durban, Sudáfrica</div>
+                        <p data-i18n="description-6">
+                            Servicios de ingeniería especializados en automatización industrial. Programación de PLC Allen-Bradley, instalación y puesta en marcha, diseño de esquemas eléctricos y desarrollo de sistemas SCADA/HMI.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-6-1">Programación de PLC Allen-Bradley.</li>
+                            <li data-i18n="responsibility-6-2">Diseño de esquemas eléctricos.</li>
+                            <li data-i18n="responsibility-6-3">Desarrollo y programación de SCADA, HMI, reportes y alarmas.</li>
+                            <li data-i18n="responsibility-6-4">Revisión y reparación de equipos electrónicos industriales.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PCwin</span>
+                                    <span class="tech-badge">RSLogix5000</span>
+                                    <span class="tech-badge">TIA Portal</span>
+                                    <span class="tech-badge">AutoCAD</span>
+                                    <span class="tech-badge">Visual Studio</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="networks">Redes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PROFIBUS</span>
+                                    <span class="tech-badge">ETHERNET</span>
+                                    <span class="tech-badge">DEVICENET</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Peter Erasmus</div>
+                                <div class="reference-position" data-i18n="reference-6-1-position">CEO - Directech Group</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27117082202"><i class="fas fa-phone"></i> +27 11 708 2202 (Ext: 244)</a>
+                                    <a href="tel:+27828531178"><i class="fas fa-mobile-alt"></i> +27 82 853 1178</a>
+                                    <a href="mailto:peter.erasmus@directech.co.za"><i class="fas fa-envelope"></i> peter.erasmus@directech.co.za</a>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <div class="reference-name">Suman Panday</div>
+                                <div class="reference-position" data-i18n="reference-6-2-position">CEO - Blakey Plastics Pty Ltd</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27315792802"><i class="fas fa-phone"></i> +27 31 579 2802</a>
+                                    <a href="mailto:suman@blakeyplastics.com"><i class="fas fa-envelope"></i> suman@blakeyplastics.com</a>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <div class="reference-name">Oscar Baeza</div>
+                                <div class="reference-position" data-i18n="reference-6-3-position">CEO - Osorno Pipe & Fire Engineering</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27319143624"><i class="fas fa-phone"></i> +27 31 914 3624</a>
+                                    <a href="mailto:admin@osorno.co.za"><i class="fas fa-envelope"></i> admin@osorno.co.za</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 7: 2017-2018 -->
+                <div class="timeline-item" id="period-7" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2017 – 2018</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-project-diagram"></i>
+                            <span data-i18n="role-7">Ingeniero de Proyectos</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-7">FORI AUTOMATION • Detroit, EE. UU.</div>
+                        <p data-i18n="description-7">
+                            Subcontratado por Talos Automation. Desarrollo del primer prototipo de energía inductiva para sistemas AGV. Programación de PLC Allen-Bradley, HMI Siemens, ajustes de punto de acceso inalámbrico y servo drives.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-7-1">Desarrollo de prototipo de energía inductiva para AGV.</li>
+                            <li data-i18n="responsibility-7-2">Programación de PLC Allen-Bradley y HMI Siemens.</li>
+                            <li data-i18n="responsibility-7-3">Parametrización y calibración de variadores de velocidad y sensores.</li>
+                            <li data-i18n="responsibility-7-4">Configuración de redes industriales.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Studio 5000</span>
+                                    <span class="tech-badge">RSLinx</span>
+                                    <span class="tech-badge">TIA Portal</span>
+                                    <span class="tech-badge">RSNetWorx</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="networks">Redes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PROFIBUS</span>
+                                    <span class="tech-badge">ETHERNET</span>
+                                    <span class="tech-badge">DEVICENET</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Todd Bryson</div>
+                                <div class="reference-position" data-i18n="reference-7-1-position">Supervisor de Director de Proyectos - Fori Automation</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+15862472336"><i class="fas fa-phone"></i> +1 (586) 247-2336 Ext. 1141</a>
+                                    <a href="tel:+15864848619"><i class="fas fa-mobile-alt"></i> +1 (586) 484-8619</a>
+                                    <a href="mailto:tbryson@foriauto.com"><i class="fas fa-envelope"></i> tbryson@foriauto.com</a>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <div class="reference-name">Bruce Robinson</div>
+                                <div class="reference-position" data-i18n="reference-7-2-position">Gerente de Cuentas Senior - Talos Automation</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+15862512194"><i class="fas fa-phone"></i> +1 (586) 251-2194</a>
+                                    <a href="tel:+447881108700"><i class="fas fa-mobile-alt"></i> +44 (0) 7881 108 700</a>
+                                    <a href="mailto:bruce@talosautomation.com"><i class="fas fa-envelope"></i> bruce@talosautomation.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 8: 2018 -->
+                <div class="timeline-item" id="period-8" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2018</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-robot"></i>
+                            <span data-i18n="role-8">Ingeniero de Control</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-8">KUKA ROBOTICS • Detroit, EE. UU.</div>
+                        <p data-i18n="description-8">
+                            Subcontratado por Talos Automation. Puesta en marcha de celda robot KUKA para línea automotriz GM Arlington Texas. Programación de PLC Allen-Bradley y HMI Siemens.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-8-1">Puesta en marcha de celda robot KUKA.</li>
+                            <li data-i18n="responsibility-8-2">Programación de PLC Allen-Bradley y HMI Siemens.</li>
+                            <li data-i18n="responsibility-8-3">Parametrización y calibración de variadores de velocidad, sensores e instrumentación.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Studio 5000</span>
+                                    <span class="tech-badge">RSLinx</span>
+                                    <span class="tech-badge">TIA Portal</span>
+                                    <span class="tech-badge">RSNetWorx</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="networks">Redes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PROFIBUS</span>
+                                    <span class="tech-badge">ETHERNET</span>
+                                    <span class="tech-badge">DEVICENET</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Gary Zmudczynski</div>
+                                <div class="reference-position" data-i18n="reference-8-1-position">Líder de Planta PLC KTP - KUKA Systems North America LLC</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+15867952000"><i class="fas fa-phone"></i> +1 (586) 795-2000</a>
+                                    <a href="tel:+12482176880"><i class="fas fa-mobile-alt"></i> +1 (248) 217-6880</a>
+                                    <a href="mailto:Gary.Zmudczynski@kuka.com"><i class="fas fa-envelope"></i> Gary.Zmudczynski@kuka.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 9: 2018-2019 -->
+                <div class="timeline-item" id="period-9" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2018 – 2019</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-user-tie"></i>
+                            <span data-i18n="role-9">Director</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-9">TEDICON • Durban, Sudáfrica</div>
+                        <p data-i18n="description-9">
+                            Servicios de ingeniería especializados en automatización industrial. Programación de PLC Allen-Bradley, instalación y puesta en marcha, diseño de esquemas eléctricos y desarrollo de sistemas SCADA/HMI.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-9-1">Programación de PLC Allen-Bradley.</li>
+                            <li data-i18n="responsibility-9-2">Diseño de esquemas eléctricos.</li>
+                            <li data-i18n="responsibility-9-3">Desarrollo y programación de SCADA, HMI, reportes y alarmas.</li>
+                            <li data-i18n="responsibility-9-4">Revisión y reparación de equipos electrónicos industriales.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PCwin</span>
+                                    <span class="tech-badge">RSLogix5000</span>
+                                    <span class="tech-badge">TIA Portal</span>
+                                    <span class="tech-badge">AutoCAD</span>
+                                    <span class="tech-badge">Visual Studio</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="networks">Redes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">PROFIBUS</span>
+                                    <span class="tech-badge">ETHERNET</span>
+                                    <span class="tech-badge">DEVICENET</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Peter Erasmus</div>
+                                <div class="reference-position" data-i18n="reference-9-1-position">CEO - Directech Group</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27117082202"><i class="fas fa-phone"></i> +27 11 708 2202 (Ext: 244)</a>
+                                    <a href="tel:+27828531178"><i class="fas fa-mobile-alt"></i> +27 82 853 1178</a>
+                                    <a href="mailto:peter.erasmus@directech.co.za"><i class="fas fa-envelope"></i> peter.erasmus@directech.co.za</a>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <div class="reference-name">Suman Panday</div>
+                                <div class="reference-position" data-i18n="reference-9-2-position">CEO - Blakey Plastics Pty Ltd</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27315792802"><i class="fas fa-phone"></i> +27 31 579 2802</a>
+                                    <a href="mailto:suman@blakeyplastics.com"><i class="fas fa-envelope"></i> suman@blakeyplastics.com</a>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <div class="reference-name">Oscar Baeza</div>
+                                <div class="reference-position" data-i18n="reference-9-3-position">CEO - Osorno Pipe & Fire Engineering</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27319143624"><i class="fas fa-phone"></i> +27 31 914 3624</a>
+                                    <a href="mailto:admin@osorno.co.za"><i class="fas fa-envelope"></i> admin@osorno.co.za</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 10: 2019-2022 -->
+                <div class="timeline-item" id="period-10" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2019 – 2022</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-laptop-code"></i>
+                            <span data-i18n="role-10">Desarrollador Móvil Freelancer</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-10">Remoto</div>
+                        <p data-i18n="description-10">
+                            Desarrollo de aplicaciones Android desde cero usando Java y Kotlin. Diseño y creación de interfaces de usuario, implementación de patrones de diseño y mejores prácticas para asegurar escalabilidad y mantenibilidad.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-10-1">Desarrollo de aplicaciones Android con Java y Kotlin.</li>
+                            <li data-i18n="responsibility-10-2">Diseño de UI/UX y prototipado.</li>
+                            <li data-i18n="responsibility-10-3">Implementación de patrones de diseño y mejores prácticas.</li>
+                            <li data-i18n="responsibility-10-4">Análisis y resolución de problemas técnicos.</li>
+                            <li data-i18n="responsibility-10-5">Comunicación directa con clientes para cumplir requisitos.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="languages">Lenguajes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Java</span>
+                                    <span class="tech-badge">Kotlin</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Android Studio</span>
+                                    <span class="tech-badge">Firebase</span>
+                                    <span class="tech-badge">SQLite</span>
+                                    <span class="tech-badge">Figma</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name" data-i18n="reference-10-note">Disponibles bajo petición</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 11: 2022-2023 -->
+                <div class="timeline-item" id="period-11" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2022 – 2023</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-desktop"></i>
+                            <span data-i18n="role-11">Supervisor SCADA</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-11">S.E.I.P • Comodoro Rivadavia, Argentina</div>
+                        <p data-i18n="description-11">
+                            Contratado por SEIP para el contrato de mantenimiento de SCADA y control para Pan American Energy. Supervisión de tareas de mantenimiento preventivo y correctivo en el campo Golfo San Jorge.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-11-1">Supervisión de mantenimiento preventivo y correctivo de sistemas SCADA.</li>
+                            <li data-i18n="responsibility-11-2">Gestión de materiales, equipos y herramientas.</li>
+                            <li data-i18n="responsibility-11-3">Desarrollo de procedimientos e instrucciones de manejo.</li>
+                            <li data-i18n="responsibility-11-4">Supervisión de equipos para asegurar cumplimiento de procedimientos.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="technologies">Tecnologías</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">iFIX 5.0</span>
+                                    <span class="tech-badge">PLC Motorola</span>
+                                    <span class="tech-badge">PLC Allen Bradley</span>
+                                    <span class="tech-badge">Modicon</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Marcelo Lorenc</div>
+                                <div class="reference-position" data-i18n="reference-11-1-position">Ing. Sr. Electrónico - Pan American Energy</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+5492975148939"><i class="fas fa-mobile-alt"></i> +54 9 297 5148939</a>
+                                    <a href="https://www.linkedin.com/in/marcelo-lorenc-01a9637/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 12: 2024 -->
+                <div class="timeline-item" id="period-12" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2024</div>
+                        <h3 class="role-title">
+                            <i class="fas fa-car-battery"></i>
+                            <span data-i18n="role-12">Ingeniero de Control</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-12">Ensamblaje de Baterías GM • Spring Hill, Tennessee, EE. UU.</div>
+                        <p data-i18n="description-12">
+                            Subcontratado por Talos Automation (Atom tech). Puesta en marcha de la super fase de la línea de producción mini stack para ensamblaje de baterías GM.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-12-1">Puesta en marcha de línea de producción mini stack.</li>
+                            <li data-i18n="responsibility-12-2">Entrada de parámetros y calibración de variadores de velocidad, sensores, instrumentación y servo drives.</li>
+                            <li data-i18n="responsibility-12-3">Programación, depuración y optimización de software de control (PLC - Allen-Bradley).</li>
+                            <li data-i18n="responsibility-12-4">Configuración y desarrollo de HMI (Siemens).</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Studio 5000 v32</span>
+                                    <span class="tech-badge">RSLinx Classic</span>
+                                    <span class="tech-badge">TIA Portal v15</span>
+                                    <span class="tech-badge">GM eTools</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="networks">Redes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">ETHERNET</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name">Irwin J. Dyers</div>
+                                <div class="reference-position" data-i18n="reference-12-1-position">Director de Proyectos</div>
+                                <div class="reference-contact">
+                                    <a href="tel:+27848580347"><i class="fas fa-mobile-alt"></i> +27 84 858 0347</a>
+                                    <a href="https://www.linkedin.com/in/irwin-dyers-1b0a4b1a/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Period 13: 2024-Actual -->
+                <div class="timeline-item" id="period-13" role="listitem">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-card">
+                        <div class="period">2024 – Actualidad</div>
+                        <h3 class="role-title">
+                            <i class="fab fa-flutter"></i>
+                            <span data-i18n="role-13">Desarrollador Flutter Freelancer</span>
+                        </h3>
+                        <div class="company-location" data-i18n="company-13">Remoto</div>
+                        <p data-i18n="description-13">
+                            Desarrollo de aplicaciones móviles multiplataforma desde cero usando Flutter (Dart). Integración con API RESTful desarrolladas en Node.js y uso extensivo de servicios de Firebase.
+                        </p>
+                        <ul class="responsibilities">
+                            <li data-i18n="responsibility-13-1">Desarrollo de aplicaciones móviles multiplataforma con Flutter.</li>
+                            <li data-i18n="responsibility-13-2">Diseño e implementación de interfaces de usuario atractivas y funcionales.</li>
+                            <li data-i18n="responsibility-13-3">Integración con API RESTful desarrolladas en Node.js.</li>
+                            <li data-i18n="responsibility-13-4">Uso de servicios de Firebase: Firestore, Auth, Cloud Functions, Storage.</li>
+                            <li data-i18n="responsibility-13-5">Aplicación de patrones arquitectónicos como MVVM y Arquitectura Limpia.</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="languages">Lenguajes</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Dart</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">HTML/CSS</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="frameworks">Frameworks</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Flutter</span>
+                                    <span class="tech-badge">Node.js</span>
+                                    <span class="tech-badge">Express</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label" data-i18n="tools">Herramientas</span>
+                                <div class="tech-items">
+                                    <span class="tech-badge">Firebase</span>
+                                    <span class="tech-badge">Figma</span>
+                                    <span class="tech-badge">Android Studio</span>
+                                    <span class="tech-badge">VS Code</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4><i class="fas fa-user-check"></i> <span data-i18n="references">Referencias</span></h4>
+                            <div class="reference-item">
+                                <div class="reference-name" data-i18n="reference-13-note">Disponibles bajo petición</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="education-section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span data-i18n="education-title">Educación y Certificaciones</span>
+                </h2>
+                
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3 class="education-title" data-i18n="education-1-title">Técnico Electrónico</h3>
+                        <div class="education-details" data-i18n="education-1-details">ENET N°1 • Punta Alta, Buenos Aires, Argentina</div>
+                        <div class="education-period">2004</div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3 class="education-title" data-i18n="education-2-title">Técnico en Hidrocarburos</h3>
+                        <div class="education-details" data-i18n="education-2-details">Escuela de Petróleo • Sarmiento, Chubut, Argentina</div>
+                        <div class="education-period">2006-2007</div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3 class="education-title" data-i18n="education-3-title">Licenciatura en Ciencias de la Computación</h3>
+                        <div class="education-details" data-i18n="education-3-details">Universidad Siglo 21 • Comodoro Rivadavia, Chubut, Argentina</div>
+                        <div class="education-period">En curso</div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3 class="education-title" data-i18n="education-4-title">Programador de Software</h3>
+                        <div class="education-details" data-i18n="education-4-details">Instituto de Estudios Sipial • Punta Alta, Buenos Aires, Argentina</div>
+                        <div class="education-period">2004</div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3 class="education-title" data-i18n="education-5-title">Programador de PLC Allen-Bradley</h3>
+                        <div class="education-details" data-i18n="education-5-details">Instituto de Capacitación Patagonia • Comodoro Rivadavia, Chubut, Argentina</div>
+                        <div class="education-period">2011</div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3 class="education-title" data-i18n="education-6-title">Programación en JavaScript</h3>
+                        <div class="education-details" data-i18n="education-6-details">EducacionIT • Buenos Aires, Argentina (en línea)</div>
+                        <div class="education-period">2012</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-actions">
+                <button class="btn-primary" onclick="downloadPDF()">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="download">Descargar PDF</span>
+                </button>
+                <button class="btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i>
+                    <span data-i18n="print">Imprimir</span>
+                </button>
+                <button class="btn-primary" onclick="shareCV()">
+                    <i class="fas fa-share-alt"></i>
+                    <span data-i18n="share">Compartir</span>
+                </button>
+            </div>
+            <div class="footer-note" data-i18n="footer-note">
+                &copy; 2024 Michael Williams Martinez. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+    
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <script>
+        // Translation data
+        const translations = {
+            es: {
+                // Header and navigation
+                "skip-content": "Saltar al contenido principal",
+                "location": "Argentina (disponible para trabajo remoto y viajes)",
+                "download": "Descargar PDF",
+                "timeline-title": "Línea de Tiempo Profesional",
+                "education-title": "Educación y Certificaciones",
+                
+                // Profile
+                "profile-summary": "Profesional versátil con más de 15 años de experiencia en Automatización y Control Industrial, y más de 6 años en Desarrollo Móvil Multiplataforma. He trabajado en proyectos internacionales en Argentina, Sudáfrica y Estados Unidos, combinando ingeniería industrial con soluciones de software modernas. Especialista en diseño, implementación y optimización de sistemas de control automatizados, incluyendo programación de PLCs, desarrollo SCADA/HMI, control de procesos y sistemas de seguridad industrial (SIL). Experiencia comprobada en gestión de proyectos de automatización, desde la planificación hasta la puesta en marcha, liderando equipos técnicos y colaborando con profesionales de diversas disciplinas. Mi trayectoria abarca sectores como petrolero, automotriz y alimentario, lo que me ha permitido adquirir una visión integral de los sistemas industriales y una gran capacidad de adaptación a distintos entornos tecnológicos. Además, poseo una sólida experiencia en desarrollo de aplicaciones móviles Android, empleando Kotlin y Java, junto con arquitecturas limpias, integración con Firebase, SQLite y APIs RESTful creadas con Node.js y MongoDB. Diseño interfaces modernas y funcionales, optimizo el rendimiento de las apps e implemento notificaciones push y servicios en tiempo real. Soy un profesional autónomo, orientado a resultados, con un enfoque constante en la innovación tecnológica y la mejora continua. Mi objetivo es unir la ingeniería industrial con el desarrollo de software para ofrecer soluciones inteligentes, escalables y de alto impacto."
+                              ,
+                
+                // Skills
+                "skills-title": "Habilidades y Competencias",
+                "skills-industrial": "Automatización Industrial",
+                "skills-mobile": "Móvil y Backend",
+                "skills-languages": "Lenguajes de Programación",
+                "skills-networks": "Redes y Protocolos",
+                "skills-tools": "Herramientas y Plataformas",
+                "skills-languages-human": "Idiomas",
+                
+                // Timeline roles
+                "role-1": "Técnico Eléctrico en Instrumentos",
+                "role-2": "Oficial de Instrumentación",
+                "role-3": "Supervisor SCADA",
+                "role-4": "Programador Jr",
+                "role-5": "Programador Senior",
+                "role-6": "Director",
+                "role-7": "Ingeniero de Proyectos",
+                "role-8": "Ingeniero de Control",
+                "role-9": "Director",
+                "role-10": "Desarrollador Móvil Freelancer",
+                "role-11": "Supervisor SCADA",
+                "role-12": "Ingeniero de Control",
+                "role-13": "Desarrollador Flutter Freelancer",
+                
+                // Companies
+                "company-1": "NEOTEK SRL • Comodoro Rivadavia, Argentina",
+                "company-2": "SKANSKA L.A • Comodoro Rivadavia, Argentina",
+                "company-3": "SKANSKA L.A • Comodoro Rivadavia, Argentina",
+                "company-4": "DESIGN INTERNATIONAL • Durban, Sudáfrica",
+                "company-5": "DIRECTECH • Durban, Sudáfrica (Toyota S.A)",
+                "company-6": "TEDICON • Durban, Sudáfrica",
+                "company-7": "FORI AUTOMATION • Detroit, EE. UU.",
+                "company-8": "KUKA ROBOTICS • Detroit, EE. UU.",
+                "company-9": "TEDICON • Durban, Sudáfrica",
+                "company-10": "Remoto",
+                "company-11": "S.E.I.P • Comodoro Rivadavia, Argentina",
+                "company-12": "Ensamblaje de Baterías GM • Spring Hill, Tennessee, EE. UU.",
+                "company-13": "Remoto",
+                
+                // Descriptions
+                "description-1": "Construcción y servicio/mantenimiento en campos petroleros. Ensamblaje y puesta en marcha de equipos de telemetría para pozos AIB controlados por PLC MOSCAD D,L (Motorola). Instalación de equipos de telemetría Lufkin Pump-off para pozos AIB.",
+                "description-2": "Mantenimiento correctivo y preventivo de equipos de medición de presión, temperatura, caudal, transductores ultrasónicos y válvulas de control. Contraste con sistema SCADA y reparación de equipos defectuosos.",
+                "description-3": "Monitoreo y control de estados de procesos HMI/SCADA con software PLC Allen-Bradley, Moscad Dl, Siemens, Honeywell. Distribución y adquisición de datos, alarmas, reportes del sistema en tiempo real y tendencias históricas.",
+                "description-4": "Puesta en marcha y optimización de sistemas robóticos. Programación y desarrollo de SCADA y HMI. Programación de PLCs: Beckhoff, Allen-Bradley, Siemens, Festo, Mitsubishi, Toyopuc.",
+                "description-5": "Programación de PLC Toyopuc para cinta transportadora de tablones Hilux SUV. Puesta en marcha, optimización y desarrollo de HMI con reportes, gráficos de tendencia, indicadores y alarmas.",
+                "description-6": "Servicios de ingeniería especializados en automatización industrial. Programación de PLC Allen-Bradley, instalación y puesta en marcha, diseño de esquemas eléctricos y desarrollo de sistemas SCADA/HMI.",
+                "description-7": "Subcontratado por Talos Automation. Desarrollo del primer prototipo de energía inductiva para sistemas AGV. Programación de PLC Allen-Bradley, HMI Siemens, ajustes de punto de acceso inalámbrico y servo drives.",
+                "description-8": "Subcontratado por Talos Automation. Puesta en marcha de celda robot KUKA para línea automotriz GM Arlington Texas. Programación de PLC Allen-Bradley y HMI Siemens.",
+                "description-9": "Servicios de ingeniería especializados en automatización industrial. Programación de PLC Allen-Bradley, instalación y puesta en marcha, diseño de esquemas eléctricos y desarrollo de sistemas SCADA/HMI.",
+                "description-10": "Desarrollo de aplicaciones Android desde cero usando Java y Kotlin. Diseño y creación de interfaces de usuario, implementación de patrones de diseño y mejores prácticas para asegurar escalabilidad y mantenibilidad.",
+                "description-11": "Contratado por SEIP para el contrato de mantenimiento de SCADA y control para Pan American Energy. Supervisión de tareas de mantenimiento preventivo y correctivo en el campo Golfo San Jorge.",
+                "description-12": "Subcontratado por Talos Automation (Atom tech). Puesta en marcha de la super fase de la línea de producción mini stack para ensamblaje de baterías GM.",
+                "description-13": "Desarrollo de aplicaciones móviles multiplataforma desde cero usando Flutter (Dart). Integración con API RESTful desarrolladas en Node.js y uso extensivo de servicios de Firebase.",
+                
+                // Responsibilities
+                "responsibility-1-1": "Ensamblaje y conexión de transmisores de presión, temperatura, caudal, transductores ultrasónicos y válvulas.",
+                "responsibility-1-2": "Instalación y puesta en marcha de equipos de telemetría para pozos AIB.",
+                "responsibility-1-3": "Mantenimiento preventivo y correctivo de sistemas de control.",
+                "responsibility-2-1": "Mantenimiento de sistemas de medición y control.",
+                "responsibility-2-2": "Reparación y reemplazo de equipos defectuosos.",
+                "responsibility-2-3": "Contraste de instrumentos con sistema SCADA.",
+                "responsibility-3-1": "Instalación y configuración de sistemas SCADA.",
+                "responsibility-3-2": "Creación de base de datos de procesos y pantallas gráficas.",
+                "responsibility-3-3": "Desarrollo de funcionalidades: alarmas, seguridad, reportes y tendencias.",
+                "responsibility-3-4": "Configuración de controladores y sistemas de seguridad.",
+                "responsibility-4-1": "Programación de múltiples marcas de PLC.",
+                "responsibility-4-2": "Desarrollo de interfaces HMI y sistemas SCADA.",
+                "responsibility-4-3": "Puesta en marcha de sistemas robóticos.",
+                "responsibility-5-1": "Programación de PLC Toyopuc.",
+                "responsibility-5-2": "Puesta en marcha y optimización de sistemas.",
+                "responsibility-5-3": "Parametrización y calibración de variadores de velocidad, sensores e instrumentación.",
+                "responsibility-5-4": "Desarrollo de HMI con reportes y alarmas.",
+                "responsibility-6-1": "Programación de PLC Allen-Bradley.",
+                "responsibility-6-2": "Diseño de esquemas eléctricos.",
+                "responsibility-6-3": "Desarrollo y programación de SCADA, HMI, reportes y alarmas.",
+                "responsibility-6-4": "Revisión y reparación de equipos electrónicos industriales.",
+                "responsibility-7-1": "Desarrollo de prototipo de energía inductiva para AGV.",
+                "responsibility-7-2": "Programación de PLC Allen-Bradley y HMI Siemens.",
+                "responsibility-7-3": "Parametrización y calibración de variadores de velocidad y sensores.",
+                "responsibility-7-4": "Configuración de redes industriales.",
+                "responsibility-8-1": "Puesta en marcha de celda robot KUKA.",
+                "responsibility-8-2": "Programación de PLC Allen-Bradley y HMI Siemens.",
+                "responsibility-8-3": "Parametrización y calibración de variadores de velocidad, sensores e instrumentación.",
+                "responsibility-9-1": "Programación de PLC Allen-Bradley.",
+                "responsibility-9-2": "Diseño de esquemas eléctricos.",
+                "responsibility-9-3": "Desarrollo y programación de SCADA, HMI, reportes y alarmas.",
+                "responsibility-9-4": "Revisión y reparación de equipos electrónicos industriales.",
+                "responsibility-10-1": "Desarrollo de aplicaciones Android con Java y Kotlin.",
+                "responsibility-10-2": "Diseño de UI/UX y prototipado.",
+                "responsibility-10-3": "Implementación de patrones de diseño y mejores prácticas.",
+                "responsibility-10-4": "Análisis y resolución de problemas técnicos.",
+                "responsibility-10-5": "Comunicación directa con clientes para cumplir requisitos.",
+                "responsibility-11-1": "Supervisión de mantenimiento preventivo y correctivo de sistemas SCADA.",
+                "responsibility-11-2": "Gestión de materiales, equipos y herramientas.",
+                "responsibility-11-3": "Desarrollo de procedimientos e instrucciones de manejo.",
+                "responsibility-11-4": "Supervisión de equipos para asegurar cumplimiento de procedimientos.",
+                "responsibility-12-1": "Puesta en marcha de línea de producción mini stack.",
+                "responsibility-12-2": "Entrada de parámetros y calibración de variadores de velocidad, sensores, instrumentación y servo drives.",
+                "responsibility-12-3": "Programación, depuración y optimización de software de control (PLC - Allen-Bradley).",
+                "responsibility-12-4": "Configuración y desarrollo de HMI (Siemens).",
+                "responsibility-13-1": "Desarrollo de aplicaciones móviles multiplataforma con Flutter.",
+                "responsibility-13-2": "Diseño e implementación de interfaces de usuario atractivas y funcionales.",
+                "responsibility-13-3": "Integración con API RESTful desarrolladas en Node.js.",
+                "responsibility-13-4": "Uso de servicios de Firebase: Firestore, Auth, Cloud Functions, Storage.",
+                "responsibility-13-5": "Aplicación de patrones arquitectónicos como MVVM y Arquitectura Limpia.",
+                
+                // References
+                "references": "Referencias",
+                "reference-3-1-position": "Departamento de Mantenimiento de Instrumentación",
+                "reference-3-2-position": "Coordinador SCADA y Control",
+                "reference-5-1-position": "CEO - Directech Group",
+                "reference-6-1-position": "CEO - Directech Group",
+                "reference-6-2-position": "CEO - Blakey Plastics Pty Ltd",
+                "reference-6-3-position": "CEO - Osorno Pipe & Fire Engineering",
+                "reference-7-1-position": "Supervisor de Director de Proyectos - Fori Automation",
+                "reference-7-2-position": "Gerente de Cuentas Senior - Talos Automation",
+                "reference-8-1-position": "Líder de Planta PLC KTP - KUKA Systems North America LLC",
+                "reference-9-1-position": "CEO - Directech Group",
+                "reference-9-2-position": "CEO - Blakey Plastics Pty Ltd",
+                "reference-9-3-position": "CEO - Osorno Pipe & Fire Engineering",
+                "reference-10-note": "Disponibles bajo petición",
+                "reference-11-1-position": "Ing. Sr. Electrónico - Pan American Energy",
+                "reference-12-1-position": "Director de Proyectos",
+                "reference-13-note": "Disponibles bajo petición",
+                
+                // Tech labels
+                "tools": "Herramientas",
+                "technologies": "Tecnologías",
+                "protocols": "Protocolos",
+                "plc": "PLCs",
+                "networks": "Redes",
+                "languages": "Lenguajes",
+                "frameworks": "Frameworks",
+                
+                // Education
+                "education-1-title": "Técnico Electrónico",
+                "education-1-details": "ENET N°1 • Punta Alta, Buenos Aires, Argentina",
+                "education-2-title": "Técnico en Hidrocarburos",
+                "education-2-details": "Escuela de Petróleo • Sarmiento, Chubut, Argentina",
+                "education-3-title": "Licenciatura en Ciencias de la Computación",
+                "education-3-details": "Universidad Siglo 21 • Comodoro Rivadavia, Chubut, Argentina",
+                "education-4-title": "Programador de Software",
+                "education-4-details": "Instituto de Estudios Sipial • Punta Alta, Buenos Aires, Argentina",
+                "education-5-title": "Programador de PLC Allen-Bradley",
+                "education-5-details": "Instituto de Capacitación Patagonia • Comodoro Rivadavia, Chubut, Argentina",
+                "education-6-title": "Programación en JavaScript",
+                "education-6-details": "EducacionIT • Buenos Aires, Argentina (en línea)",
+                
+                // Footer
+                "print": "Imprimir",
+                "share": "Compartir",
+                "footer-note": "&copy; 2025 Michael Williams Martinez. Todos los derechos reservados."
+            },
+            en: {
+                // Header and navigation
+                "skip-content": "Skip to main content",
+                "location": "Argentina (available for remote work and travel)",
+                "download": "Download PDF",
+                "timeline-title": "Professional Timeline",
+                "education-title": "Education and Certifications",
+                
+                // Profile
+                "profile-summary": "Versatile professional with over 15 years of experience in Industrial Automation and Control, and more than 6 years in Cross-Platform Mobile Development. I have worked on international projects in Argentina, South Africa, and the United States, combining industrial engineering with modern software solutions. Specialized in the design, implementation, and optimization of automated control systems, including PLC programming, SCADA/HMI development, process control, and industrial safety systems (SIL). Proven experience managing automation projects from planning to commissioning, leading technical teams, and collaborating with multidisciplinary professionals. My career spans industries such as oil & gas, automotive, and food production, which has provided me with a comprehensive understanding of industrial systems and the ability to adapt quickly to different technological environments. Additionally, I have solid experience in Android mobile application development using Kotlin and Java, applying clean architecture principles, and integrating Firebase, SQLite, and RESTful APIs built with Node.js and MongoDB. I design modern, functional user interfaces, optimize app performance, and implement push notifications and real-time services. I am an independent, results-oriented professional with a constant focus on technological innovation and continuous improvement. My goal is to bridge industrial engineering and software development to deliver intelligent, scalable, and high-impact solutions."
+                                                    ,
+                
+                // Skills
+                "skills-title": "Skills and Competencies",
+                "skills-industrial": "Industrial Automation",
+                "skills-mobile": "Mobile and Backend",
+                "skills-languages": "Programming Languages",
+                "skills-networks": "Networks and Protocols",
+                "skills-tools": "Tools and Platforms",
+                "skills-languages-human": "Languages",
+                
+                // Timeline roles
+                "role-1": "Electrical Instrument Technician",
+                "role-2": "Instrumentation Officer",
+                "role-3": "SCADA Supervisor",
+                "role-4": "Junior Programmer",
+                "role-5": "Senior Programmer",
+                "role-6": "Director",
+                "role-7": "Project Engineer",
+                "role-8": "Control Engineer",
+                "role-9": "Director",
+                "role-10": "Mobile Developer Freelancer",
+                "role-11": "SCADA Supervisor",
+                "role-12": "Control Engineer",
+                "role-13": "Flutter Developer Freelancer",
+                
+                // Companies
+                "company-1": "NEOTEK SRL • Comodoro Rivadavia, Argentina",
+                "company-2": "SKANSKA L.A • Comodoro Rivadavia, Argentina",
+                "company-3": "SKANSKA L.A • Comodoro Rivadavia, Argentina",
+                "company-4": "DESIGN INTERNATIONAL • Durban, South Africa",
+                "company-5": "DIRECTECH • Durban, South Africa (Toyota S.A)",
+                "company-6": "TEDICON • Durban, South Africa",
+                "company-7": "FORI AUTOMATION • Detroit, USA",
+                "company-8": "KUKA ROBOTICS • Detroit, USA",
+                "company-9": "TEDICON • Durban, South Africa",
+                "company-10": "Remote",
+                "company-11": "S.E.I.P • Comodoro Rivadavia, Argentina",
+                "company-12": "GM Battery Assembly • Spring Hill, Tennessee, USA",
+                "company-13": "Remote",
+                
+                // Descriptions
+                "description-1": "Construction and service/maintenance in oil fields. Assembly and commissioning of telemetry equipment for AIB wells controlled by MOSCAD D,L PLC (Motorola). Installation of Lufkin Pump-off telemetry equipment for AIB wells.",
+                "description-2": "Corrective and preventive maintenance of pressure, temperature, flow measurement equipment, ultrasonic transducers and control valves. Comparison with SCADA system and repair of faulty equipment.",
+                "description-3": "Monitoring and control of HMI/SCADA process states with Allen-Bradley, Moscad Dl, Siemens, Honeywell PLC software. Data distribution and acquisition, alarms, real-time system reports and historical trends.",
+                "description-4": "Commissioning and optimization of robotic systems. SCADA and HMI programming and development. PLC programming: Beckhoff, Allen-Bradley, Siemens, Festo, Mitsubishi, Toyopuc.",
+                "description-5": "Toyopuc PLC programming for Hilux SUV plank conveyor. Commissioning, optimization and HMI development with reports, trend graphs, indicators and alarms.",
+                "description-6": "Engineering services specialized in industrial automation. Allen-Bradley PLC programming, installation and commissioning, electrical schematic design and SCADA/HMI system development.",
+                "description-7": "Subcontracted by Talos Automation. Development of the first inductive power prototype for AGV systems. Allen-Bradley PLC programming, Siemens HMI, wireless access point adjustments and servo drives.",
+                "description-8": "Subcontracted by Talos Automation. Commissioning of KUKA robot cell for GM Arlington Texas automotive line. Allen-Bradley PLC and Siemens HMI programming.",
+                "description-9": "Engineering services specialized in industrial automation. Allen-Bradley PLC programming, installation and commissioning, electrical schematic design and SCADA/HMI system development.",
+                "description-10": "Development of Android applications from scratch using Java and Kotlin. UI/UX design and creation, implementation of design patterns and best practices to ensure scalability and maintainability.",
+                "description-11": "Hired by SEIP for the SCADA and control maintenance contract for Pan American Energy. Supervision of preventive and corrective maintenance tasks in the Gulf San Jorge field.",
+                "description-12": "Subcontracted by Talos Automation (Atom tech). Commissioning of the super phase of the mini stack production line for GM battery assembly.",
+                "description-13": "Development of cross-platform mobile applications from scratch using Flutter (Dart). Integration with RESTful APIs developed in Node.js and extensive use of Firebase services.",
+                
+                // Responsibilities
+                "responsibility-1-1": "Assembly and connection of pressure, temperature, flow transmitters, ultrasonic transducers and valves.",
+                "responsibility-1-2": "Installation and commissioning of telemetry equipment for AIB wells.",
+                "responsibility-1-3": "Preventive and corrective maintenance of control systems.",
+                "responsibility-2-1": "Maintenance of measurement and control systems.",
+                "responsibility-2-2": "Repair and replacement of faulty equipment.",
+                "responsibility-2-3": "Instrument comparison with SCADA system.",
+                "responsibility-3-1": "Installation and configuration of SCADA systems.",
+                "responsibility-3-2": "Creation of process database and graphic screens.",
+                "responsibility-3-3": "Development of functionalities: alarms, security, reports and trends.",
+                "responsibility-3-4": "Controller and security system configuration.",
+                "responsibility-4-1": "Programming of multiple PLC brands.",
+                "responsibility-4-2": "Development of HMI interfaces and SCADA systems.",
+                "responsibility-4-3": "Commissioning of robotic systems.",
+                "responsibility-5-1": "Toyopuc PLC programming.",
+                "responsibility-5-2": "System commissioning and optimization.",
+                "responsibility-5-3": "Parameterization and calibration of speed drives, sensors and instrumentation.",
+                "responsibility-5-4": "HMI development with reports and alarms.",
+                "responsibility-6-1": "Allen-Bradley PLC programming.",
+                "responsibility-6-2": "Electrical schematic design.",
+                "responsibility-6-3": "SCADA, HMI, reports and alarms development and programming.",
+                "responsibility-6-4": "Review and repair of industrial electronic equipment.",
+                "responsibility-7-1": "Development of inductive power prototype for AGV.",
+                "responsibility-7-2": "Allen-Bradley PLC and Siemens HMI programming.",
+                "responsibility-7-3": "Parameterization and calibration of speed drives and sensors.",
+                "responsibility-7-4": "Industrial network configuration.",
+                "responsibility-8-1": "Commissioning of KUKA robot cell.",
+                "responsibility-8-2": "Allen-Bradley PLC and Siemens HMI programming.",
+                "responsibility-8-3": "Parameterization and calibration of speed drives, sensors and instrumentation.",
+                "responsibility-9-1": "Allen-Bradley PLC programming.",
+                "responsibility-9-2": "Electrical schematic design.",
+                "responsibility-9-3": "SCADA, HMI, reports and alarms development and programming.",
+                "responsibility-9-4": "Review and repair of industrial electronic equipment.",
+                "responsibility-10-1": "Android application development with Java and Kotlin.",
+                "responsibility-10-2": "UI/UX design and prototyping.",
+                "responsibility-10-3": "Implementation of design patterns and best practices.",
+                "responsibility-10-4": "Analysis and resolution of technical problems.",
+                "responsibility-10-5": "Direct communication with clients to meet requirements.",
+                "responsibility-11-1": "Supervision of preventive and corrective maintenance of SCADA systems.",
+                "responsibility-11-2": "Management of materials, equipment and tools.",
+                "responsibility-11-3": "Development of procedures and handling instructions.",
+                "responsibility-11-4": "Team supervision to ensure procedure compliance.",
+                "responsibility-12-1": "Commissioning of mini stack production line.",
+                "responsibility-12-2": "Parameter entry and calibration of speed drives, sensors, instrumentation and servo drives.",
+                "responsibility-12-3": "Programming, debugging and optimization of control software (PLC - Allen-Bradley).",
+                "responsibility-12-4": "Configuration and development of HMI (Siemens).",
+                "responsibility-13-1": "Development of cross-platform mobile applications with Flutter.",
+                "responsibility-13-2": "Design and implementation of attractive and functional user interfaces.",
+                "responsibility-13-3": "Integration with RESTful APIs developed in Node.js.",
+                "responsibility-13-4": "Use of Firebase services: Firestore, Auth, Cloud Functions, Storage.",
+                "responsibility-13-5": "Application of architectural patterns such as MVVM and Clean Architecture.",
+                
+                // References
+                "references": "References",
+                "reference-3-1-position": "Instrumentation Maintenance Department",
+                "reference-3-2-position": "SCADA and Control Coordinator",
+                "reference-5-1-position": "CEO - Directech Group",
+                "reference-6-1-position": "CEO - Directech Group",
+                "reference-6-2-position": "CEO - Blakey Plastics Pty Ltd",
+                "reference-6-3-position": "CEO - Osorno Pipe & Fire Engineering",
+                "reference-7-1-position": "Project Manager Supervisor - Fori Automation",
+                "reference-7-2-position": "Senior Account Manager - Talos Automation",
+                "reference-8-1-position": "PLC Plant Leader KTP - KUKA Systems North America LLC",
+                "reference-9-1-position": "CEO - Directech Group",
+                "reference-9-2-position": "CEO - Blakey Plastics Pty Ltd",
+                "reference-9-3-position": "CEO - Osorno Pipe & Fire Engineering",
+                "reference-10-note": "Available upon request",
+                "reference-11-1-position": "Sr. Electronic Engineer - Pan American Energy",
+                "reference-12-1-position": "Project Manager",
+                "reference-13-note": "Available upon request",
+                
+                // Tech labels
+                "tools": "Tools",
+                "technologies": "Technologies",
+                "protocols": "Protocols",
+                "plc": "PLCs",
+                "networks": "Networks",
+                "languages": "Languages",
+                "frameworks": "Frameworks",
+                
+                // Education
+                "education-1-title": "Electronics Technician",
+                "education-1-details": "ENET N°1 • Punta Alta, Buenos Aires, Argentina",
+                "education-2-title": "Hydrocarbons Technician",
+                "education-2-details": "Oil School • Sarmiento, Chubut, Argentina",
+                "education-3-title": "Bachelor's Degree in Computer Science",
+                "education-3-details": "Siglo 21 University • Comodoro Rivadavia, Chubut, Argentina",
+                "education-4-title": "Software Programmer",
+                "education-4-details": "Sipial Studies Institute • Punta Alta, Buenos Aires, Argentina",
+                "education-5-title": "Allen-Bradley PLC Programmer",
+                "education-5-details": "Patagonia Training Institute • Comodoro Rivadavia, Chubut, Argentina",
+                "education-6-title": "JavaScript Programming",
+                "education-6-details": "EducacionIT • Buenos Aires, Argentina (online)",
+                
+                // Footer
+                "print": "Print",
+                "share": "Share",
+                "footer-note": "&copy; 2025 Michael Williams Martinez. All rights reserved."
+            }
+        };
+
+        // Language management
+        let currentLanguage = 'es';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            applyTranslations();
+            updateLanguageIndicator();
+        }
+
+        function applyTranslations() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+        }
+
+        function updateLanguageIndicator() {
+            const indicator = document.getElementById('language-indicator');
+            indicator.textContent = currentLanguage.toUpperCase();
+        }
+
+        // Theme management
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Initialize theme
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Timeline navigation
+        function initializeTimelineNavigation() {
+            const navItems = document.querySelectorAll('.timeline-nav-item');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Update active state
+                        navItems.forEach(navItem => navItem.classList.remove('active'));
+                        item.classList.add('active');
+                    }
+                });
+            });
+            
+            // Set first item as active by default
+            if (navItems.length > 0) {
+                navItems[0].classList.add('active');
+            }
+        }
+
+        // Scroll to top functionality
+        function initializeScrollToTop() {
+            const scrollButton = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            });
+            
+            scrollButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Copy email functionality
+        function copyEmail() {
+            const email = 'mmaik1987@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                // Show temporary feedback
+                const originalText = document.querySelector('.copy-email').textContent;
+                document.querySelector('.copy-email').textContent = '¡Email copiado!';
+                
+                setTimeout(() => {
+                    document.querySelector('.copy-email').textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Download PDF functionality
+        function downloadPDF() {
+            alert('PDF download functionality would be implemented here. In a real implementation, this would generate and download a PDF version of the CV.');
+        }
+
+        // Share CV functionality
+        function shareCV() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Michael Williams Martinez - Professional CV',
+                    text: 'Check out my professional CV with experience in industrial automation and mobile development',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        }
+
+        // Initialize everything when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTranslations();
+            initializeTheme();
+            initializeTimelineNavigation();
+            initializeScrollToTop();
+        });
+    </script>
+</body>
+</html>
