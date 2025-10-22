@@ -615,6 +615,29 @@
             background: #7f1d1d;
             color: #fecaca;
         }
+
+        .translation-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .translate-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-decoration: underline;
+            padding: 0;
+        }
+
+        .translate-btn:hover {
+            color: var(--primary-dark);
+        }
     </style>
 </head>
 <body>
@@ -816,10 +839,11 @@
                 
                 // Loading
                 "loading-reviews": "Cargando reseñas...",
+                "no-reviews": "No hay reseñas disponibles.",
                 
                 // Modal
                 "modal-title": "Agregar Reseña",
-                "success-message": "¡Reseña enviada exitosamente!",
+                "success-message": "¡Reseña enviada exitosamente! Será revisada antes de publicarse.",
                 
                 // Form labels
                 "form-name": "Tu Nombre *",
@@ -831,8 +855,19 @@
                 "form-review-placeholder": "Comparte tu experiencia trabajando con Michael...",
                 "form-submit": "Enviar Reseña",
                 
+                // Translation controls
+                "translated-from": "Traducido del",
+                "show-original": "Mostrar original",
+                "show-translation": "Mostrar traducción",
+                
                 // Footer
-                "footer-note": "&copy; 2024 Michael Williams Martinez. Todos los derechos reservados."
+                "footer-note": "&copy; 2024 Michael Williams Martinez. Todos los derechos reservados.",
+                
+                // Errors
+                "connection-error": "Error de conexión. Por favor intenta más tarde.",
+                "load-error": "Error al cargar reseñas",
+                "rating-required": "Por favor selecciona una calificación",
+                "submit-error": "Error al enviar reseña"
             },
             en: {
                 // Header and navigation
@@ -849,10 +884,11 @@
                 
                 // Loading
                 "loading-reviews": "Loading reviews...",
+                "no-reviews": "No reviews available.",
                 
                 // Modal
                 "modal-title": "Add Review",
-                "success-message": "Review submitted successfully!",
+                "success-message": "Review submitted successfully! It will be reviewed before publishing.",
                 
                 // Form labels
                 "form-name": "Your Name *",
@@ -864,8 +900,19 @@
                 "form-review-placeholder": "Share your experience working with Michael...",
                 "form-submit": "Submit Review",
                 
+                // Translation controls
+                "translated-from": "Translated from",
+                "show-original": "Show original",
+                "show-translation": "Show translation",
+                
                 // Footer
-                "footer-note": "&copy; 2024 Michael Williams Martinez. All rights reserved."
+                "footer-note": "&copy; 2024 Michael Williams Martinez. All rights reserved.",
+                
+                // Errors
+                "connection-error": "Connection error. Please try again later.",
+                "load-error": "Error loading reviews",
+                "rating-required": "Please select a rating",
+                "submit-error": "Error submitting review"
             }
         };
 
@@ -876,6 +923,7 @@
             currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
             applyTranslations();
             updateLanguageIndicator();
+            loadReviews(); // Reload reviews with new language
         }
 
         function applyTranslations() {
@@ -950,14 +998,104 @@
                 const data = await response.json();
                 
                 if (data.success) {
-                    reviews = data.reviews;
+                    reviews = await processReviews(data.reviews);
                     loadReviews();
                 } else {
-                    showError('Error al cargar reseñas');
+                    showError(translations[currentLanguage]['load-error']);
                 }
             } catch (error) {
                 console.error('Error de conexión:', error);
-                showError('Error de conexión. Por favor intenta más tarde.');
+                showError(translations[currentLanguage]['connection-error']);
+            }
+        }
+
+        // Process reviews - detect language and prepare translations
+        async function processReviews(reviews) {
+            return Promise.all(reviews.map(async (review) => {
+                // Detect language of the review text
+                const detectedLang = await detectLanguage(review.text);
+                
+                // Store original language and text
+                review.originalLanguage = detectedLang;
+                review.originalText = review.text;
+                
+                // If review is not in current language, translate it
+                if (detectedLang !== currentLanguage) {
+                    try {
+                        review.text = await translateText(review.text, detectedLang, currentLanguage);
+                        review.translated = true;
+                        review.translationSource = detectedLang;
+                    } catch (error) {
+                        console.warn('Translation failed, using original text:', error);
+                        review.translated = false;
+                    }
+                } else {
+                    review.translated = false;
+                }
+                
+                return review;
+            }));
+        }
+
+        // Simple language detection based on common words
+        async function detectLanguage(text) {
+            const spanishWords = ['el', 'la', 'de', 'que', 'y', 'en', 'un', 'es', 'se', 'no', 'te', 'lo', 'le', 'da', 'su', 'por', 'son', 'con', 'para', 'mi', 'al'];
+            const englishWords = ['the', 'and', 'to', 'of', 'a', 'in', 'is', 'it', 'you', 'that', 'he', 'was', 'for', 'on', 'are', 'as', 'with', 'his', 'they', 'at'];
+            
+            const words = text.toLowerCase().split(/\s+/);
+            
+            let spanishCount = 0;
+            let englishCount = 0;
+            
+            words.forEach(word => {
+                if (spanishWords.includes(word)) spanishCount++;
+                if (englishWords.includes(word)) englishCount++;
+            });
+            
+            // Return the language with more matches, default to English if equal
+            return spanishCount > englishCount ? 'es' : 'en';
+        }
+
+        // Translation function using free API
+        async function translateText(text, sourceLang, targetLang) {
+            // Use LibreTranslate (free and open source)
+            const LIBRETRANSLATE_URL = 'https://libretranslate.de/translate';
+            
+            try {
+                const response = await fetch(LIBRETRANSLATE_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        q: text,
+                        source: sourceLang,
+                        target: targetLang,
+                        format: 'text'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.translatedText) {
+                    return data.translatedText;
+                } else {
+                    throw new Error('Translation failed');
+                }
+            } catch (error) {
+                console.warn('LibreTranslate failed, trying MyMemory API:', error);
+                
+                // Fallback to MyMemory API
+                const MYMEMORY_URL = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
+                
+                const fallbackResponse = await fetch(MYMEMORY_URL);
+                const fallbackData = await fallbackResponse.json();
+                
+                if (fallbackData.responseData && fallbackData.responseData.translatedText) {
+                    return fallbackData.responseData.translatedText;
+                } else {
+                    throw new Error('All translation services failed');
+                }
             }
         }
 
@@ -981,7 +1119,7 @@
             const container = document.getElementById('reviewsContainer');
             
             if (reviews.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 3rem;">No hay reseñas disponibles.</p>';
+                container.innerHTML = `<p style="text-align: center; color: var(--text-secondary); padding: 3rem;">${translations[currentLanguage]['no-reviews']}</p>`;
                 return;
             }
             
@@ -1007,6 +1145,20 @@
             
             const tags = review.tags.map(tag => `<span class="review-tag">${tag}</span>`).join('');
             
+            // Add translation controls if the review was translated
+            let translationControls = '';
+            if (review.translated && review.translationSource) {
+                const sourceLang = review.translationSource === 'es' ? 'español' : 'inglés';
+                translationControls = `
+                    <div class="translation-control">
+                        <span>${translations[currentLanguage]['translated-from']} ${sourceLang}</span>
+                        <button class="translate-btn" onclick="toggleTranslation(this, '${review.id}')">
+                            ${translations[currentLanguage]['show-original']}
+                        </button>
+                    </div>
+                `;
+            }
+            
             card.innerHTML = `
                 <div class="review-header">
                     <div class="reviewer-avatar">${initials}</div>
@@ -1020,11 +1172,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="review-content">${review.text}</div>
+                <div class="review-content" id="review-content-${review.id}">${review.text}</div>
+                ${translationControls}
                 <div class="review-tags">${tags}</div>
             `;
             
+            // Store original text for toggling
+            if (review.translated) {
+                card.dataset.originalText = review.originalText;
+                card.dataset.translatedText = review.text;
+                card.dataset.currentView = 'translated';
+            }
+            
             return card;
+        }
+
+        // Toggle between original and translated text
+        function toggleTranslation(button, reviewId) {
+            const card = button.closest('.review-card');
+            const contentElement = document.getElementById(`review-content-${reviewId}`);
+            const currentView = card.dataset.currentView;
+            
+            if (currentView === 'translated') {
+                // Show original
+                contentElement.textContent = card.dataset.originalText;
+                button.textContent = translations[currentLanguage]['show-translation'];
+                card.dataset.currentView = 'original';
+            } else {
+                // Show translation
+                contentElement.textContent = card.dataset.translatedText;
+                button.textContent = translations[currentLanguage]['show-original'];
+                card.dataset.currentView = 'translated';
+            }
         }
 
         function generateStars(rating) {
@@ -1119,9 +1298,13 @@
             e.preventDefault();
             
             if (selectedRating === 0) {
-                alert(currentLanguage === 'es' ? 'Por favor selecciona una calificación' : 'Please select a rating');
+                alert(translations[currentLanguage]['rating-required']);
                 return;
             }
+            
+            const submitButton = form.querySelector('.btn-submit');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (currentLanguage === 'es' ? 'Enviando...' : 'Submitting...');
             
             const formData = {
                 name: document.getElementById('reviewerName').value,
@@ -1129,7 +1312,8 @@
                 company: document.getElementById('reviewerCompany').value,
                 rating: selectedRating,
                 text: document.getElementById('reviewText').value,
-                linkedin_url: document.getElementById('linkedinUrl').value || ''
+                linkedin_url: document.getElementById('linkedinUrl').value || '',
+                tags: ['New Review']
             };
             
             try {
@@ -1145,25 +1329,23 @@
                 
                 if (data.success) {
                     document.getElementById('successMessage').classList.add('show');
-                    document.getElementById('reviewForm').reset();
-                    selectedRating = 0;
-                    updateStarRating();
                     
-                    // Refresh reviews and stats after a successful submission
                     setTimeout(() => {
+                        closeReviewModal();
+                        // Refresh reviews after successful submission
                         fetchReviews();
                         fetchStats();
                     }, 2000);
                 } else {
-                    alert(currentLanguage === 'es' 
-                        ? 'Error al enviar la reseña: ' + data.error 
-                        : 'Error submitting review: ' + data.error);
+                    alert(translations[currentLanguage]['submit-error'] + ': ' + data.error);
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> ' + translations[currentLanguage]['form-submit'];
                 }
             } catch (error) {
                 console.error('Error de conexión:', error);
-                alert(currentLanguage === 'es' 
-                    ? 'Error de conexión. Por favor intenta más tarde.' 
-                    : 'Connection error. Please try again later.');
+                alert(translations[currentLanguage]['connection-error']);
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> ' + translations[currentLanguage]['form-submit'];
             }
         }
 
