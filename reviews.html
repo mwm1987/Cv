@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reseñas y testimonios profesionales de Michael Williams Martinez">
+    <title>Michael Williams Martinez - Reseñas Profesionales</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --secondary: #dbeafe;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --star-color: #fbbf24;
+            --success: #10b981;
+        }
+        
+        [data-theme="dark"] {
+            --primary: #60a5fa;
+            --primary-dark: #3b82f6;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --secondary: #1e3a8a;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --border: #334155;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.4);
+            --star-color: #fbbf24;
+            --success: #34d399;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .header-info h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn-icon {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .rating-summary {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .rating-overview {
+            text-align: center;
+        }
+        
+        .rating-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+        
+        .star {
+            color: var(--star-color);
+        }
+        
+        .star.empty {
+            color: var(--border);
+        }
+        
+        .rating-count {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .rating-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .rating-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            min-width: 60px;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .rating-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .rating-bar-fill {
+            height: 100%;
+            background: var(--star-color);
+            transition: width 0.6s ease;
+        }
+        
+        .rating-percentage {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            min-width: 40px;
+            text-align: right;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .btn-add-review {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-add-review:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .review-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .review-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .reviewer-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .reviewer-info {
+            flex: 1;
+        }
+        
+        .reviewer-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .reviewer-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .review-stars {
+            display: flex;
+            gap: 0.15rem;
+            font-size: 0.95rem;
+        }
+        
+        .review-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .review-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .review-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .review-tag {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #0077b5;
+            color: white;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .btn-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-close:hover {
+            background: var(--border);
+            color: var(--text-primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--background);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .star-input {
+            cursor: pointer;
+            color: var(--border);
+            transition: all 0.2s ease;
+        }
+        
+        .star-input:hover,
+        .star-input.active {
+            color: var(--star-color);
+            transform: scale(1.1);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-info h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .rating-summary {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        .success-message {
+            background: var(--success);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .success-message.show {
+            display: flex;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .error-message {
+            background: #7f1d1d;
+            color: #fecaca;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="header-info">
+                <h1>Michael Williams Martinez</h1>
+                <div class="header-location">
+                    <i class="fas fa-star"></i>
+                    <span>Reseñas y Testimonios Profesionales</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <button class="btn-primary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al CV</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="rating-summary">
+            <div class="rating-overview">
+                <div class="rating-number" id="avgRating">-</div>
+                <div class="rating-stars" id="avgStars">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                </div>
+                <div class="rating-count"><span id="totalReviews">-</span> reseñas profesionales</div>
+            </div>
+            
+            <div class="rating-breakdown">
+                <div class="rating-row">
+                    <div class="rating-label">
+                        5 <i class="fas fa-star" style="font-size: 0.7rem; color: var(--star-color);"></i>
+                    </div>
+                    <div class="rating-bar">
+                        <div class="rating-bar-fill" style="width: 0%" id="bar5"></div>
+                    </div>
+                    <div class="rating-percentage" id="pct5">0%</div>
+                </div>
+                <div class="rating-row">
+                    <div class="rating-label">
+                        4 <i class="fas fa-star" style="font-size: 0.7rem; color: var(--star-color);"></i>
+                    </div>
+                    <div class="rating-bar">
+                        <div class="rating-bar-fill" style="width: 0%" id="bar4"></div>
+                    </div>
+                    <div class="rating-percentage" id="pct4">0%</div>
+                </div>
+                <div class="rating-row">
+                    <div class="rating-label">
+                        3 <i class="fas fa-star" style="font-size: 0.7rem; color: var(--star-color);"></i>
+                    </div>
+                    <div class="rating-bar">
+                        <div class="rating-bar-fill" style="width: 0%" id="bar3"></div>
+                    </div>
+                    <div class="rating-percentage" id="pct3">0%</div>
+                </div>
+                <div class="rating-row">
+                    <div class="rating-label">
+                        2 <i class="fas fa-star" style="font-size: 0.7rem; color: var(--star-color);"></i>
+                    </div>
+                    <div class="rating-bar">
+                        <div class="rating-bar-fill" style="width: 0%" id="bar2"></div>
+                    </div>
+                    <div class="rating-percentage" id="pct2">0%</div>
+                </div>
+                <div class="rating-row">
+                    <div class="rating-label">
+                        1 <i class="fas fa-star" style="font-size: 0.7rem; color: var(--star-color);"></i>
+                    </div>
+                    <div class="rating-bar">
+                        <div class="rating-bar-fill" style="width: 0%" id="bar1"></div>
+                    </div>
+                    <div class="rating-percentage" id="pct1">0%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-comments"></i>
+                <span>Testimonios</span>
+            </h2>
+            <button class="btn-add-review" onclick="openReviewModal()">
+                <i class="fas fa-plus"></i>
+                <span>Agregar Reseña</span>
+            </button>
+        </div>
+        
+        <div class="reviews-grid" id="reviewsContainer">
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                <p>Cargando reseñas...</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Agregar Reseña</h3>
+                <button class="btn-close" onclick="closeReviewModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <span>¡Reseña enviada exitosamente!</span>
+            </div>
+            
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label class="form-label">Tu Nombre *</label>
+                    <input type="text" class="form-input" id="reviewerName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Título / Posición *</label>
+                    <input type="text" class="form-input" id="reviewerTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Empresa</label>
+                    <input type="text" class="form-input" id="reviewerCompany">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Perfil de LinkedIn (opcional)</label>
+                    <input type="url" class="form-input" id="linkedinUrl" placeholder="https://linkedin.com/in/tu-perfil">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Calificación *</label>
+                    <div class="star-rating" id="starRating">
+                        <i class="fas fa-star star-input" data-rating="1"></i>
+                        <i class="fas fa-star star-input" data-rating="2"></i>
+                        <i class="fas fa-star star-input" data-rating="3"></i>
+                        <i class="fas fa-star star-input" data-rating="4"></i>
+                        <i class="fas fa-star star-input" data-rating="5"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Tu Reseña *</label>
+                    <textarea class="form-textarea" id="reviewText" required placeholder="Comparte tu experiencia trabajando con Michael..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Reseña
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-actions">
+                <button class="btn-primary" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al CV</span>
+                </button>
+            </div>
+            <div class="footer-note">
+                &copy; 2024 Michael Williams Martinez. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // API Configuration
+        const API_URL = 'https://michael1987.pythonanywhere.com/api';
+        
+        // State management
+        let reviews = [];
+        let selectedRating = 0;
+        let stats = null;
+
+        // Initialize
+        function init() {
+            initializeTheme();
+            fetchReviews();
+            fetchStats();
+            setupStarRating();
+            setupForm();
+        }
+
+        // Theme management
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            localStorage.setItem('theme', newTheme);
+        }
+
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Navigation
+        function goBack() {
+            window.close();
+            if (!window.closed) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Fetch reviews from API
+        async function fetchReviews() {
+            try {
+                const response = await fetch(`${API_URL}/reviews`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    reviews = data.reviews;
+                    loadReviews();
+                } else {
+                    showError('Error al cargar reseñas');
+                }
+            } catch (error) {
+                console.error('Error de conexión:', error);
+                showError('Error de conexión. Por favor intenta más tarde.');
+            }
+        }
+
+        // Fetch statistics from API
+        async function fetchStats() {
+            try {
+                const response = await fetch(`${API_URL}/reviews/stats`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    stats = data.stats;
+                    updateRatingSummary();
+                }
+            } catch (error) {
+                console.error('Error al cargar estadísticas:', error);
+            }
+        }
+
+        // Load and display reviews
+        function loadReviews() {
+            const container = document.getElementById('reviewsContainer');
+            
+            if (reviews.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 3rem;">No hay reseñas disponibles.</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            reviews.forEach(review => {
+                const reviewCard = createReviewCard(review);
+                container.appendChild(reviewCard);
+            });
+        }
+
+        function createReviewCard(review) {
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            
+            const initials = review.name.split(' ').map(n => n[0]).join('').substring(0, 2);
+            const stars = generateStars(review.rating);
+            const formattedDate = formatDate(review.date);
+            
+            const linkedinBadge = review.linkedin 
+                ? `<span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>`
+                : '';
+            
+            const tags = review.tags.map(tag => `<span class="review-tag">${tag}</span>`).join('');
+            
+            card.innerHTML = `
+                <div class="review-header">
+                    <div class="reviewer-avatar">${initials}</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">${review.name}</div>
+                        <div class="reviewer-title">${review.title} • ${review.company}</div>
+                        <div class="review-meta">
+                            <div class="review-stars">${stars}</div>
+                            <div class="review-date">${formattedDate}</div>
+                            ${linkedinBadge}
+                        </div>
+                    </div>
+                </div>
+                <div class="review-content">${review.text}</div>
+                <div class="review-tags">${tags}</div>
+            `;
+            
+            return card;
+        }
+
+        function generateStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += `<i class="fas fa-star ${i <= rating ? 'star' : 'star empty'}"></i>`;
+            }
+            return stars;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('es-ES', options);
+        }
+
+        function updateRatingSummary() {
+            if (!stats) return;
+            
+            document.getElementById('totalReviews').textContent = stats.total;
+            document.getElementById('avgRating').textContent = stats.average;
+            
+            // Update star display
+            const avgStarsContainer = document.getElementById('avgStars');
+            const fullStars = Math.floor(stats.average);
+            const hasHalfStar = stats.average % 1 >= 0.5;
+            
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    starsHTML += '<i class="fas fa-star star"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    starsHTML += '<i class="fas fa-star-half-alt star"></i>';
+                } else {
+                    starsHTML += '<i class="fas fa-star star empty"></i>';
+                }
+            }
+            avgStarsContainer.innerHTML = starsHTML;
+            
+            // Update breakdown bars
+            [5, 4, 3, 2, 1].forEach((rating) => {
+                const count = stats.distribution[rating.toString()] || 0;
+                const percentage = stats.total > 0 ? Math.round((count / stats.total) * 100) : 0;
+                
+                document.getElementById(`bar${rating}`).style.width = `${percentage}%`;
+                document.getElementById(`pct${rating}`).textContent = `${percentage}%`;
+            });
+        }
+
+        function showError(message) {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-circle"></i> ${message}</div>`;
+        }
+
+        // Modal management
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.remove('active');
+            document.body.style.overflow = '';
+            resetForm();
+        }
+
+        // Star rating setup
+        function setupStarRating() {
+            const stars = document.querySelectorAll('.star-input');
+            
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.getAttribute('data-rating'));
+                    updateStarDisplay();
+                });
+                
+                star.addEventListener('mouseenter', () => {
+                    const rating = parseInt(star.getAttribute('data-rating'));
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            document.getElementById('starRating').addEventListener('mouseleave', () => {
+                updateStarDisplay();
+            });
+        }
+
+        function updateStarDisplay() {
+            const stars = document.querySelectorAll('.star-input');
+            stars.forEach((star, index) => {
+                if (index < selectedRating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        // Form setup and submission
+        function setupForm() {
+            const form = document.getElementById('reviewForm');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (selectedRating === 0) {
+                    showMessage('Por favor selecciona una calificación', 'error');
+                    return;
+                }
+                
+                const submitButton = form.querySelector('.btn-submit');
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                
+                const newReview = {
+                    name: document.getElementById('reviewerName').value,
+                    title: document.getElementById('reviewerTitle').value,
+                    company: document.getElementById('reviewerCompany').value || 'Empresa no especificada',
+                    rating: selectedRating,
+                    text: document.getElementById('reviewText').value,
+                    linkedin_url: document.getElementById('linkedinUrl').value,
+                    tags: ['New Review']
+                };
+                
+                try {
+                    const response = await fetch(`${API_URL}/reviews`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(newReview)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        showMessage('¡Reseña enviada exitosamente! Será revisada antes de publicarse.', 'success');
+                        
+                        setTimeout(() => {
+                            closeReviewModal();
+                        }, 2000);
+                    } else {
+                        showMessage('Error al enviar reseña: ' + data.error, 'error');
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Reseña';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error de conexión. Por favor intenta nuevamente.', 'error');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Reseña';
+                }
+            });
+        }
+
+        function showMessage(message, type) {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i><span>${message}</span>`;
+            successMessage.className = 'success-message show';
+            
+            if (type === 'error') {
+                successMessage.style.background = '#ef4444';
+            } else if (type === 'warning') {
+                successMessage.style.background = '#f59e0b';
+            } else {
+                successMessage.style.background = 'var(--success)';
+            }
+        }
+
+        function resetForm() {
+            const form = document.getElementById('reviewForm');
+            form.reset();
+            selectedRating = 0;
+            updateStarDisplay();
+            document.getElementById('successMessage').classList.remove('show');
+            
+            const submitButton = form.querySelector('.btn-submit');
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Reseña';
+        }
+
+        // Close modal on outside click
+        document.getElementById('reviewModal').addEventListener('click', (e) => {
+            if (e.target.id === 'reviewModal') {
+                closeReviewModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('reviewModal').classList.contains('active')) {
+                closeReviewModal();
+            }
+        });
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
