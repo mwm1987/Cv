@@ -813,11 +813,15 @@
                 <button class="btn-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
+                    <button class="btn-primary" onclick="openReviews()">
+                 <i class="fas fa-star"></i>
+                 <span data-i18n="reviews">Reseñas</span>
+                  </button>
                 <!-- En la sección header-actions, después del botón de Descargar PDF -->
-<button class="btn-primary" onclick="openCertifications()">
-    <i class="fas fa-certificate"></i>
-    <span data-i18n="certifications">Certificaciones</span>
-</button>
+              <button class="btn-primary" onclick="openCertifications()">
+              <i class="fas fa-certificate"></i>
+               <span data-i18n="certifications">Certificaciones</span>
+              </button>
                 <button class="btn-primary" onclick="downloadPDF()">
                     <i class="fas fa-download"></i>
                     <span data-i18n="download">Descargar PDF</span>
@@ -904,7 +908,7 @@
                     </li>
                     <li role="listitem">
                         <i class="fab fa-github"></i>
-                        <a href="https://github.com/michaelmartinezw" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/mwm1987" target="_blank" rel="noopener">GitHub</a>
                     </li>
                     <li role="listitem">
                         <i class="fab fa-linkedin"></i>
@@ -1795,6 +1799,9 @@
                 "skills-tools": "Herramientas y Plataformas",
                 "skills-languages-human": "Idiomas",
                 
+                "reviews": "Reseñas",
+                "certifications": "Certificaciones",
+
                 // Timeline roles
                 "role-1": "Técnico Eléctrico en Instrumentos",
                 "role-2": "Oficial de Instrumentación",
@@ -1960,6 +1967,9 @@
                 "skills-tools": "Tools and Platforms",
                 "skills-languages-human": "Languages",
                 
+                "reviews": "Reviews",
+                "certifications": "Certifications",
+
                 // Timeline roles
                 "role-1": "Electrical Instrument Technician",
                 "role-2": "Instrumentation Officer",
@@ -2238,6 +2248,11 @@
             initializeTimelineNavigation();
             initializeScrollToTop();
         });
+
+            // Función para abrir la página de reseñas
+    function openReviews() {
+        window.open('reviews.html', '_blank');
+    }
     </script>
 </body>
 </html>
