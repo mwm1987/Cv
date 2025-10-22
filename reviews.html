@@ -289,7 +289,6 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
             transition: all 0.3s ease;
-            position: relative;
         }
         
         .review-card:hover {
@@ -356,7 +355,6 @@
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1rem;
-            min-height: 60px;
         }
         
         .review-tags {
@@ -386,7 +384,7 @@
             font-weight: 600;
         }
         
-        .translation-control {
+        .language-switcher {
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -395,7 +393,7 @@
             color: var(--text-muted);
         }
 
-        .translate-btn {
+        .language-btn {
             background: var(--primary);
             color: white;
             border: none;
@@ -410,23 +408,14 @@
             transition: all 0.3s ease;
         }
 
-        .translate-btn:hover {
+        .language-btn:hover {
             background: var(--primary-dark);
             transform: translateY(-1px);
         }
 
-        .translate-btn.loading {
-            background: var(--text-muted);
-            cursor: not-allowed;
-        }
-
-        .translate-btn.loading i {
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .language-btn.active {
+            background: var(--primary-dark);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .language-badge {
@@ -886,14 +875,10 @@
                 "form-review-placeholder": "Comparte tu experiencia trabajando con Michael...",
                 "form-submit": "Enviar Reseña",
                 
-                // Translation controls
-                "translate-to-english": "Traducir al inglés",
-                "translate-to-spanish": "Traducir al español",
-                "translating": "Traduciendo...",
-                "translation-failed": "Error en traducción",
-                "original-language": "Idioma original",
-                "spanish": "Español",
-                "english": "Inglés",
+                // Language controls
+                "view-in-spanish": "Ver en español",
+                "view-in-english": "Ver en inglés",
+                "current-language": "Idioma actual",
                 
                 // Footer
                 "footer-note": "&copy; 2024 Michael Williams Martinez. Todos los derechos reservados.",
@@ -935,14 +920,10 @@
                 "form-review-placeholder": "Share your experience working with Michael...",
                 "form-submit": "Submit Review",
                 
-                // Translation controls
-                "translate-to-english": "Translate to English",
-                "translate-to-spanish": "Translate to Spanish",
-                "translating": "Translating...",
-                "translation-failed": "Translation failed",
-                "original-language": "Original language",
-                "spanish": "Spanish",
-                "english": "English",
+                // Language controls
+                "view-in-spanish": "View in Spanish",
+                "view-in-english": "View in English",
+                "current-language": "Current language",
                 
                 // Footer
                 "footer-note": "&copy; 2024 Michael Williams Martinez. All rights reserved.",
@@ -962,7 +943,7 @@
             currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
             applyTranslations();
             updateLanguageIndicator();
-            loadReviews(); // Reload reviews with new language
+            fetchReviews(); // Recargar reseñas en el nuevo idioma
         }
 
         function applyTranslations() {
@@ -1033,11 +1014,11 @@
         // Fetch reviews from API
         async function fetchReviews() {
             try {
-                const response = await fetch(`${API_URL}/reviews`);
+                const response = await fetch(`${API_URL}/reviews?lang=${currentLanguage}`);
                 const data = await response.json();
                 
                 if (data.success) {
-                    reviews = await processReviews(data.reviews);
+                    reviews = data.reviews;
                     loadReviews();
                 } else {
                     showError(translations[currentLanguage]['load-error']);
@@ -1045,84 +1026,6 @@
             } catch (error) {
                 console.error('Error de conexión:', error);
                 showError(translations[currentLanguage]['connection-error']);
-            }
-        }
-
-        // Process reviews - detect language and prepare for translation
-        async function processReviews(reviews) {
-            return reviews.map(review => {
-                // Detect language of the review text
-                const detectedLang = detectLanguage(review.text);
-                
-                // Store original language and text
-                review.originalLanguage = detectedLang;
-                review.originalText = review.text;
-                review.currentText = review.text;
-                review.isTranslated = false;
-                
-                return review;
-            });
-        }
-
-        // Simple language detection based on common words
-        function detectLanguage(text) {
-            const spanishWords = ['el', 'la', 'de', 'que', 'y', 'en', 'un', 'es', 'se', 'no', 'te', 'lo', 'le', 'da', 'su', 'por', 'son', 'con', 'para', 'mi', 'al'];
-            const englishWords = ['the', 'and', 'to', 'of', 'a', 'in', 'is', 'it', 'you', 'that', 'he', 'was', 'for', 'on', 'are', 'as', 'with', 'his', 'they', 'at'];
-            
-            const words = text.toLowerCase().split(/\s+/);
-            
-            let spanishCount = 0;
-            let englishCount = 0;
-            
-            words.forEach(word => {
-                if (spanishWords.includes(word)) spanishCount++;
-                if (englishWords.includes(word)) englishCount++;
-            });
-            
-            // Return the language with more matches, default to English if equal
-            return spanishCount > englishCount ? 'es' : 'en';
-        }
-
-        // Translation function using free API
-        async function translateText(text, sourceLang, targetLang) {
-            // Use LibreTranslate (free and open source)
-            const LIBRETRANSLATE_URL = 'https://libretranslate.de/translate';
-            
-            try {
-                const response = await fetch(LIBRETRANSLATE_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        q: text,
-                        source: sourceLang,
-                        target: targetLang,
-                        format: 'text'
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.translatedText) {
-                    return data.translatedText;
-                } else {
-                    throw new Error('Translation failed');
-                }
-            } catch (error) {
-                console.warn('LibreTranslate failed, trying MyMemory API:', error);
-                
-                // Fallback to MyMemory API
-                const MYMEMORY_URL = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
-                
-                const fallbackResponse = await fetch(MYMEMORY_URL);
-                const fallbackData = await fallbackResponse.json();
-                
-                if (fallbackData.responseData && fallbackData.responseData.translatedText) {
-                    return fallbackData.responseData.translatedText;
-                } else {
-                    throw new Error('All translation services failed');
-                }
             }
         }
 
@@ -1172,28 +1075,21 @@
             
             const tags = review.tags.map(tag => `<span class="review-tag">${tag}</span>`).join('');
             
-            // Determine if we need translation button
-            const needsTranslation = review.originalLanguage !== currentLanguage;
-            const originalLangName = review.originalLanguage === 'es' ? translations[currentLanguage]['spanish'] : translations[currentLanguage]['english'];
+            // Add language switcher for each review
+            const otherLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            const buttonText = currentLanguage === 'es' ? 
+                translations[currentLanguage]['view-in-english'] : 
+                translations[currentLanguage]['view-in-spanish'];
             
-            // Add translation controls if the review is in a different language
-            let translationControls = '';
-            if (needsTranslation) {
-                const targetLang = currentLanguage === 'es' ? 'español' : 'english';
-                const buttonText = currentLanguage === 'es' ? 
-                    translations[currentLanguage]['translate-to-spanish'] : 
-                    translations[currentLanguage]['translate-to-english'];
-                
-                translationControls = `
-                    <div class="translation-control">
-                        <span class="language-badge">${translations[currentLanguage]['original-language']}: ${originalLangName}</span>
-                        <button class="translate-btn" onclick="translateReview(this, '${review.id}')" data-review-id="${review.id}">
-                            <i class="fas fa-language"></i>
-                            ${buttonText}
-                        </button>
-                    </div>
-                `;
-            }
+            const languageSwitcher = `
+                <div class="language-switcher">
+                    <span class="language-badge">${translations[currentLanguage]['current-language']}: ${currentLanguage.toUpperCase()}</span>
+                    <button class="language-btn" onclick="switchReviewLanguage('${review.id}', '${otherLanguage}')">
+                        <i class="fas fa-exchange-alt"></i>
+                        ${buttonText}
+                    </button>
+                </div>
+            `;
             
             card.innerHTML = `
                 <div class="review-header">
@@ -1208,62 +1104,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="review-content" id="review-content-${review.id}">${review.currentText}</div>
-                ${translationControls}
+                <div class="review-content" id="review-content-${review.id}">${review.text}</div>
+                ${languageSwitcher}
                 <div class="review-tags">${tags}</div>
             `;
             
-            // Store review data for translation
-            card.dataset.reviewId = review.id;
+            // Store both language texts for quick switching
+            card.dataset.textEs = review.text_es;
+            card.dataset.textEn = review.text_en;
+            card.dataset.currentLang = currentLanguage;
             
             return card;
         }
 
-        // Translate a single review
-        async function translateReview(button, reviewId) {
-            const review = reviews.find(r => r.id === reviewId);
-            if (!review) return;
+        // Switch language for a single review
+        function switchReviewLanguage(reviewId, targetLanguage) {
+            const card = document.querySelector(`[data-review-id="${reviewId}"]`) || 
+                        document.querySelector(`#review-content-${reviewId}`)?.closest('.review-card');
+            
+            if (!card) return;
             
             const contentElement = document.getElementById(`review-content-${reviewId}`);
-            const card = button.closest('.review-card');
+            const languageBtn = card.querySelector('.language-btn');
+            const languageBadge = card.querySelector('.language-badge');
             
-            // Show loading state
-            button.classList.add('loading');
-            button.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${translations[currentLanguage]['translating']}`;
-            button.disabled = true;
-            
-            try {
-                // Translate the text
-                const translatedText = await translateText(review.originalText, review.originalLanguage, currentLanguage);
-                
-                // Update the review
-                review.currentText = translatedText;
-                review.isTranslated = true;
-                
-                // Update the content
-                contentElement.textContent = translatedText;
-                
-                // Remove translation button since it's now translated
-                const translationControl = card.querySelector('.translation-control');
-                if (translationControl) {
-                    translationControl.remove();
-                }
-                
-            } catch (error) {
-                console.error('Translation error:', error);
-                button.classList.remove('loading');
-                button.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${translations[currentLanguage]['translation-failed']}`;
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    const buttonText = currentLanguage === 'es' ? 
-                        translations[currentLanguage]['translate-to-spanish'] : 
-                        translations[currentLanguage]['translate-to-english'];
-                    button.innerHTML = `<i class="fas fa-language"></i> ${buttonText}`;
-                    button.disabled = false;
-                    button.classList.remove('loading');
-                }, 3000);
+            if (targetLanguage === 'es') {
+                contentElement.textContent = card.dataset.textEs;
+                languageBtn.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[currentLanguage]['view-in-english']}`;
+                languageBadge.textContent = `${translations[currentLanguage]['current-language']}: ES`;
+            } else {
+                contentElement.textContent = card.dataset.textEn;
+                languageBtn.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[currentLanguage]['view-in-spanish']}`;
+                languageBadge.textContent = `${translations[currentLanguage]['current-language']}: EN`;
             }
+            
+            card.dataset.currentLang = targetLanguage;
         }
 
         function generateStars(rating) {
