@@ -99,6 +99,15 @@
             align-items: center;
         }
         
+        .language-indicator {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            margin-left: -0.5rem;
+        }
+        
         .btn-icon {
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -612,19 +621,23 @@
     <header class="header" role="banner">
         <div class="header-container">
             <div class="header-info">
-                <h1>Michael Williams Martinez</h1>
+                <h1 data-i18n="page-title">Michael Williams Martinez</h1>
                 <div class="header-location">
                     <i class="fas fa-star"></i>
-                    <span>Reseñas y Testimonios Profesionales</span>
+                    <span data-i18n="page-subtitle">Reseñas y Testimonios Profesionales</span>
                 </div>
             </div>
             <div class="header-actions">
+                <button class="btn-icon" onclick="toggleLanguage()" aria-label="Cambiar idioma" title="Cambiar idioma">
+                    <i class="fas fa-language"></i>
+                    <span class="language-indicator" id="language-indicator">ES</span>
+                </button>
                 <button class="btn-icon" onclick="toggleTheme()" aria-label="Cambiar tema">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
                 <button class="btn-primary" onclick="goBack()">
                     <i class="fas fa-arrow-left"></i>
-                    <span>Volver al CV</span>
+                    <span data-i18n="back-to-cv">Volver al CV</span>
                 </button>
             </div>
         </div>
@@ -641,7 +654,7 @@
                     <i class="fas fa-star star"></i>
                     <i class="fas fa-star star"></i>
                 </div>
-                <div class="rating-count"><span id="totalReviews">-</span> reseñas profesionales</div>
+                <div class="rating-count" data-i18n="total-reviews"><span id="totalReviews">-</span> reseñas profesionales</div>
             </div>
             
             <div class="rating-breakdown">
@@ -696,18 +709,18 @@
         <div class="section-header">
             <h2 class="section-title">
                 <i class="fas fa-comments"></i>
-                <span>Testimonios</span>
+                <span data-i18n="testimonials">Testimonios</span>
             </h2>
             <button class="btn-add-review" onclick="openReviewModal()">
                 <i class="fas fa-plus"></i>
-                <span>Agregar Reseña</span>
+                <span data-i18n="add-review">Agregar Reseña</span>
             </button>
         </div>
         
         <div class="reviews-grid" id="reviewsContainer">
             <div class="loading">
                 <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                <p>Cargando reseñas...</p>
+                <p data-i18n="loading-reviews">Cargando reseñas...</p>
             </div>
         </div>
     </div>
@@ -715,7 +728,7 @@
     <div class="modal" id="reviewModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Agregar Reseña</h3>
+                <h3 class="modal-title" data-i18n="modal-title">Agregar Reseña</h3>
                 <button class="btn-close" onclick="closeReviewModal()">
                     <i class="fas fa-times"></i>
                 </button>
@@ -723,32 +736,32 @@
             
             <div class="success-message" id="successMessage">
                 <i class="fas fa-check-circle"></i>
-                <span>¡Reseña enviada exitosamente!</span>
+                <span data-i18n="success-message">¡Reseña enviada exitosamente!</span>
             </div>
             
             <form id="reviewForm">
                 <div class="form-group">
-                    <label class="form-label">Tu Nombre *</label>
+                    <label class="form-label" data-i18n="form-name">Tu Nombre *</label>
                     <input type="text" class="form-input" id="reviewerName" required>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Título / Posición *</label>
+                    <label class="form-label" data-i18n="form-title">Título / Posición *</label>
                     <input type="text" class="form-input" id="reviewerTitle" required>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Empresa</label>
+                    <label class="form-label" data-i18n="form-company">Empresa</label>
                     <input type="text" class="form-input" id="reviewerCompany">
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Perfil de LinkedIn (opcional)</label>
+                    <label class="form-label" data-i18n="form-linkedin">Perfil de LinkedIn (opcional)</label>
                     <input type="url" class="form-input" id="linkedinUrl" placeholder="https://linkedin.com/in/tu-perfil">
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Calificación *</label>
+                    <label class="form-label" data-i18n="form-rating">Calificación *</label>
                     <div class="star-rating" id="starRating">
                         <i class="fas fa-star star-input" data-rating="1"></i>
                         <i class="fas fa-star star-input" data-rating="2"></i>
@@ -759,13 +772,13 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Tu Reseña *</label>
-                    <textarea class="form-textarea" id="reviewText" required placeholder="Comparte tu experiencia trabajando con Michael..."></textarea>
+                    <label class="form-label" data-i18n="form-review">Tu Reseña *</label>
+                    <textarea class="form-textarea" id="reviewText" required placeholder="Comparte tu experiencia trabajando con Michael..." data-i18n="form-review-placeholder"></textarea>
                 </div>
                 
                 <button type="submit" class="btn-submit">
                     <i class="fas fa-paper-plane"></i>
-                    Enviar Reseña
+                    <span data-i18n="form-submit">Enviar Reseña</span>
                 </button>
             </form>
         </div>
@@ -776,16 +789,114 @@
             <div class="footer-actions">
                 <button class="btn-primary" onclick="goBack()">
                     <i class="fas fa-arrow-left"></i>
-                    <span>Volver al CV</span>
+                    <span data-i18n="back-to-cv">Volver al CV</span>
                 </button>
             </div>
-            <div class="footer-note">
+            <div class="footer-note" data-i18n="footer-note">
                 &copy; 2024 Michael Williams Martinez. Todos los derechos reservados.
             </div>
         </div>
     </footer>
     
     <script>
+        // Translation data
+        const translations = {
+            es: {
+                // Header and navigation
+                "page-title": "Michael Williams Martinez",
+                "page-subtitle": "Reseñas y Testimonios Profesionales",
+                "back-to-cv": "Volver al CV",
+                
+                // Rating summary
+                "total-reviews": "reseñas profesionales",
+                
+                // Section header
+                "testimonials": "Testimonios",
+                "add-review": "Agregar Reseña",
+                
+                // Loading
+                "loading-reviews": "Cargando reseñas...",
+                
+                // Modal
+                "modal-title": "Agregar Reseña",
+                "success-message": "¡Reseña enviada exitosamente!",
+                
+                // Form labels
+                "form-name": "Tu Nombre *",
+                "form-title": "Título / Posición *",
+                "form-company": "Empresa",
+                "form-linkedin": "Perfil de LinkedIn (opcional)",
+                "form-rating": "Calificación *",
+                "form-review": "Tu Reseña *",
+                "form-review-placeholder": "Comparte tu experiencia trabajando con Michael...",
+                "form-submit": "Enviar Reseña",
+                
+                // Footer
+                "footer-note": "&copy; 2024 Michael Williams Martinez. Todos los derechos reservados."
+            },
+            en: {
+                // Header and navigation
+                "page-title": "Michael Williams Martinez",
+                "page-subtitle": "Professional Reviews and Testimonials",
+                "back-to-cv": "Back to CV",
+                
+                // Rating summary
+                "total-reviews": "professional reviews",
+                
+                // Section header
+                "testimonials": "Testimonials",
+                "add-review": "Add Review",
+                
+                // Loading
+                "loading-reviews": "Loading reviews...",
+                
+                // Modal
+                "modal-title": "Add Review",
+                "success-message": "Review submitted successfully!",
+                
+                // Form labels
+                "form-name": "Your Name *",
+                "form-title": "Title / Position *",
+                "form-company": "Company",
+                "form-linkedin": "LinkedIn Profile (optional)",
+                "form-rating": "Rating *",
+                "form-review": "Your Review *",
+                "form-review-placeholder": "Share your experience working with Michael...",
+                "form-submit": "Submit Review",
+                
+                // Footer
+                "footer-note": "&copy; 2024 Michael Williams Martinez. All rights reserved."
+            }
+        };
+
+        // Language management
+        let currentLanguage = 'es';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+            applyTranslations();
+            updateLanguageIndicator();
+        }
+
+        function applyTranslations() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLanguage][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[currentLanguage][key];
+                    } else {
+                        element.textContent = translations[currentLanguage][key];
+                    }
+                }
+            });
+        }
+
+        function updateLanguageIndicator() {
+            const indicator = document.getElementById('language-indicator');
+            indicator.textContent = currentLanguage.toUpperCase();
+        }
+
         // API Configuration
         const API_URL = 'https://michael1987.pythonanywhere.com/api';
         
@@ -796,6 +907,7 @@
 
         // Initialize
         function init() {
+            applyTranslations();
             initializeTheme();
             fetchReviews();
             fetchStats();
@@ -926,7 +1038,7 @@
         function formatDate(dateString) {
             const date = new Date(dateString);
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return date.toLocaleDateString('es-ES', options);
+            return date.toLocaleDateString(currentLanguage === 'es' ? 'es-ES' : 'en-US', options);
         }
 
         function updateRatingSummary() {
@@ -952,64 +1064,45 @@
             }
             avgStarsContainer.innerHTML = starsHTML;
             
-            // Update breakdown bars
-            [5, 4, 3, 2, 1].forEach((rating) => {
-                const count = stats.distribution[rating.toString()] || 0;
-                const percentage = stats.total > 0 ? Math.round((count / stats.total) * 100) : 0;
+            // Update rating bars
+            const total = stats.total;
+            for (let i = 1; i <= 5; i++) {
+                const count = stats.distribution[i] || 0;
+                const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
                 
-                document.getElementById(`bar${rating}`).style.width = `${percentage}%`;
-                document.getElementById(`pct${rating}`).textContent = `${percentage}%`;
-            });
+                document.getElementById(`bar${i}`).style.width = `${percentage}%`;
+                document.getElementById(`pct${i}`).textContent = `${percentage}%`;
+            }
         }
 
-        function showError(message) {
-            const container = document.getElementById('reviewsContainer');
-            container.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-circle"></i> ${message}</div>`;
-        }
-
-        // Modal management
+        // Review modal functionality
         function openReviewModal() {
             document.getElementById('reviewModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.getElementById('successMessage').classList.remove('show');
+            document.getElementById('reviewForm').reset();
+            selectedRating = 0;
+            updateStarRating();
         }
 
         function closeReviewModal() {
             document.getElementById('reviewModal').classList.remove('active');
-            document.body.style.overflow = '';
-            resetForm();
         }
 
-        // Star rating setup
         function setupStarRating() {
             const stars = document.querySelectorAll('.star-input');
-            
             stars.forEach(star => {
                 star.addEventListener('click', () => {
                     selectedRating = parseInt(star.getAttribute('data-rating'));
-                    updateStarDisplay();
+                    updateStarRating();
                 });
-                
-                star.addEventListener('mouseenter', () => {
-                    const rating = parseInt(star.getAttribute('data-rating'));
-                    stars.forEach((s, index) => {
-                        if (index < rating) {
-                            s.classList.add('active');
-                        } else {
-                            s.classList.remove('active');
-                        }
-                    });
-                });
-            });
-            
-            document.getElementById('starRating').addEventListener('mouseleave', () => {
-                updateStarDisplay();
             });
         }
 
-        function updateStarDisplay() {
+        function updateStarRating() {
             const stars = document.querySelectorAll('.star-input');
-            stars.forEach((star, index) => {
-                if (index < selectedRating) {
+            stars.forEach(star => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                if (rating <= selectedRating) {
                     star.classList.add('active');
                 } else {
                     star.classList.remove('active');
@@ -1017,104 +1110,69 @@
             });
         }
 
-        // Form setup and submission
         function setupForm() {
             const form = document.getElementById('reviewForm');
+            form.addEventListener('submit', handleFormSubmit);
+        }
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
             
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
+            if (selectedRating === 0) {
+                alert(currentLanguage === 'es' ? 'Por favor selecciona una calificación' : 'Please select a rating');
+                return;
+            }
+            
+            const formData = {
+                name: document.getElementById('reviewerName').value,
+                title: document.getElementById('reviewerTitle').value,
+                company: document.getElementById('reviewerCompany').value,
+                rating: selectedRating,
+                text: document.getElementById('reviewText').value,
+                linkedin_url: document.getElementById('linkedinUrl').value || ''
+            };
+            
+            try {
+                const response = await fetch(`${API_URL}/reviews`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
                 
-                if (selectedRating === 0) {
-                    showMessage('Por favor selecciona una calificación', 'error');
-                    return;
-                }
+                const data = await response.json();
                 
-                const submitButton = form.querySelector('.btn-submit');
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                
-                const newReview = {
-                    name: document.getElementById('reviewerName').value,
-                    title: document.getElementById('reviewerTitle').value,
-                    company: document.getElementById('reviewerCompany').value || 'Empresa no especificada',
-                    rating: selectedRating,
-                    text: document.getElementById('reviewText').value,
-                    linkedin_url: document.getElementById('linkedinUrl').value,
-                    tags: ['New Review']
-                };
-                
-                try {
-                    const response = await fetch(`${API_URL}/reviews`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(newReview)
-                    });
+                if (data.success) {
+                    document.getElementById('successMessage').classList.add('show');
+                    document.getElementById('reviewForm').reset();
+                    selectedRating = 0;
+                    updateStarRating();
                     
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        showMessage('¡Reseña enviada exitosamente! Será revisada antes de publicarse.', 'success');
-                        
-                        setTimeout(() => {
-                            closeReviewModal();
-                        }, 2000);
-                    } else {
-                        showMessage('Error al enviar reseña: ' + data.error, 'error');
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Reseña';
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    showMessage('Error de conexión. Por favor intenta nuevamente.', 'error');
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Reseña';
+                    // Refresh reviews and stats after a successful submission
+                    setTimeout(() => {
+                        fetchReviews();
+                        fetchStats();
+                    }, 2000);
+                } else {
+                    alert(currentLanguage === 'es' 
+                        ? 'Error al enviar la reseña: ' + data.error 
+                        : 'Error submitting review: ' + data.error);
                 }
-            });
-        }
-
-        function showMessage(message, type) {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i><span>${message}</span>`;
-            successMessage.className = 'success-message show';
-            
-            if (type === 'error') {
-                successMessage.style.background = '#ef4444';
-            } else if (type === 'warning') {
-                successMessage.style.background = '#f59e0b';
-            } else {
-                successMessage.style.background = 'var(--success)';
+            } catch (error) {
+                console.error('Error de conexión:', error);
+                alert(currentLanguage === 'es' 
+                    ? 'Error de conexión. Por favor intenta más tarde.' 
+                    : 'Connection error. Please try again later.');
             }
         }
 
-        function resetForm() {
-            const form = document.getElementById('reviewForm');
-            form.reset();
-            selectedRating = 0;
-            updateStarDisplay();
-            document.getElementById('successMessage').classList.remove('show');
-            
-            const submitButton = form.querySelector('.btn-submit');
-            submitButton.disabled = false;
-            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Reseña';
+        function showError(message) {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = `<div class="error-message">${message}</div>`;
         }
 
-        // Close modal on outside click
-        document.getElementById('reviewModal').addEventListener('click', (e) => {
-            if (e.target.id === 'reviewModal') {
-                closeReviewModal();
-            }
-        });
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('reviewModal').classList.contains('active')) {
-                closeReviewModal();
-            }
-        });
-
-        // Initialize when DOM is loaded
+        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
