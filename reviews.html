@@ -1070,7 +1070,7 @@
             
             const tags = review.tags.map(tag => `<span class="review-tag">${tag}</span>`).join('');
             
-            // Verificar si tenemos ambas versiones de texto
+            // Verificar si tenemos ambas versiones de texto y son diferentes
             const hasBilingualSupport = review.text_es && review.text_en && review.text_es !== review.text_en;
             
             let languageSwitcher = '';
@@ -1083,7 +1083,7 @@
                 languageSwitcher = `
                     <div class="language-switcher">
                         <span class="language-badge">${translations[currentLanguage]['current-language']}: ${currentLanguage.toUpperCase()}</span>
-                        <button class="language-btn" onclick="switchReviewLanguage('${review.id}', '${otherLanguage}')">
+                        <button class="language-btn" onclick="switchReviewLanguage(this, '${review.id}')">
                             <i class="fas fa-exchange-alt"></i>
                             ${buttonText}
                         </button>
@@ -1114,29 +1114,28 @@
                 card.dataset.textEs = review.text_es;
                 card.dataset.textEn = review.text_en;
                 card.dataset.currentLang = currentLanguage;
-                card.dataset.reviewId = review.id;
             }
+            card.dataset.reviewId = review.id;
             
             return card;
         }
 
         // Switch language for a single review
-        function switchReviewLanguage(reviewId, targetLanguage) {
-            const card = document.querySelector(`[data-review-id="${reviewId}"]`);
-            
-            if (!card) return;
-            
+        function switchReviewLanguage(button, reviewId) {
+            const card = button.closest('.review-card');
             const contentElement = document.getElementById(`review-content-${reviewId}`);
-            const languageBtn = card.querySelector('.language-btn');
             const languageBadge = card.querySelector('.language-badge');
+            
+            const currentLang = card.dataset.currentLang;
+            const targetLanguage = currentLang === 'es' ? 'en' : 'es';
             
             if (targetLanguage === 'es') {
                 contentElement.textContent = card.dataset.textEs;
-                languageBtn.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[currentLanguage]['view-in-english']}`;
+                button.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[currentLanguage]['view-in-english']}`;
                 languageBadge.textContent = `${translations[currentLanguage]['current-language']}: ES`;
             } else {
                 contentElement.textContent = card.dataset.textEn;
-                languageBtn.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[currentLanguage]['view-in-spanish']}`;
+                button.innerHTML = `<i class="fas fa-exchange-alt"></i> ${translations[currentLanguage]['view-in-spanish']}`;
                 languageBadge.textContent = `${translations[currentLanguage]['current-language']}: EN`;
             }
             
@@ -1180,14 +1179,19 @@
             }
             avgStarsContainer.innerHTML = starsHTML;
             
-            // Update rating bars
+            // Update rating bars - CORREGIDO: usar stats.distribution correctamente
             const total = stats.total;
-            for (let i = 1; i <= 5; i++) {
-                const count = stats.distribution[i] || 0;
-                const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
-                
-                document.getElementById(`bar${i}`).style.width = `${percentage}%`;
-                document.getElementById(`pct${i}`).textContent = `${percentage}%`;
+            if (total > 0) {
+                for (let i = 1; i <= 5; i++) {
+                    const count = stats.distribution[i.toString()] || 0;
+                    const percentage = Math.round((count / total) * 100);
+                    
+                    const barElement = document.getElementById(`bar${i}`);
+                    const pctElement = document.getElementById(`pct${i}`);
+                    
+                    if (barElement) barElement.style.width = `${percentage}%`;
+                    if (pctElement) pctElement.textContent = `${percentage}%`;
+                }
             }
         }
 
