@@ -413,11 +413,6 @@
             transform: translateY(-1px);
         }
 
-        .language-btn.active {
-            background: var(--primary-dark);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-
         .language-badge {
             background: var(--secondary);
             color: var(--primary);
@@ -1075,21 +1070,26 @@
             
             const tags = review.tags.map(tag => `<span class="review-tag">${tag}</span>`).join('');
             
-            // Add language switcher for each review
-            const otherLanguage = currentLanguage === 'es' ? 'en' : 'es';
-            const buttonText = currentLanguage === 'es' ? 
-                translations[currentLanguage]['view-in-english'] : 
-                translations[currentLanguage]['view-in-spanish'];
+            // Verificar si tenemos ambas versiones de texto
+            const hasBilingualSupport = review.text_es && review.text_en && review.text_es !== review.text_en;
             
-            const languageSwitcher = `
-                <div class="language-switcher">
-                    <span class="language-badge">${translations[currentLanguage]['current-language']}: ${currentLanguage.toUpperCase()}</span>
-                    <button class="language-btn" onclick="switchReviewLanguage('${review.id}', '${otherLanguage}')">
-                        <i class="fas fa-exchange-alt"></i>
-                        ${buttonText}
-                    </button>
-                </div>
-            `;
+            let languageSwitcher = '';
+            if (hasBilingualSupport) {
+                const otherLanguage = currentLanguage === 'es' ? 'en' : 'es';
+                const buttonText = currentLanguage === 'es' ? 
+                    translations[currentLanguage]['view-in-english'] : 
+                    translations[currentLanguage]['view-in-spanish'];
+                
+                languageSwitcher = `
+                    <div class="language-switcher">
+                        <span class="language-badge">${translations[currentLanguage]['current-language']}: ${currentLanguage.toUpperCase()}</span>
+                        <button class="language-btn" onclick="switchReviewLanguage('${review.id}', '${otherLanguage}')">
+                            <i class="fas fa-exchange-alt"></i>
+                            ${buttonText}
+                        </button>
+                    </div>
+                `;
+            }
             
             card.innerHTML = `
                 <div class="review-header">
@@ -1109,18 +1109,20 @@
                 <div class="review-tags">${tags}</div>
             `;
             
-            // Store both language texts for quick switching
-            card.dataset.textEs = review.text_es;
-            card.dataset.textEn = review.text_en;
-            card.dataset.currentLang = currentLanguage;
+            // Store both language texts for quick switching (si están disponibles)
+            if (hasBilingualSupport) {
+                card.dataset.textEs = review.text_es;
+                card.dataset.textEn = review.text_en;
+                card.dataset.currentLang = currentLanguage;
+                card.dataset.reviewId = review.id;
+            }
             
             return card;
         }
 
         // Switch language for a single review
         function switchReviewLanguage(reviewId, targetLanguage) {
-            const card = document.querySelector(`[data-review-id="${reviewId}"]`) || 
-                        document.querySelector(`#review-content-${reviewId}`)?.closest('.review-card');
+            const card = document.querySelector(`[data-review-id="${reviewId}"]`);
             
             if (!card) return;
             
